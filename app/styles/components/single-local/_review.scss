@@ -1,0 +1,38 @@
+.review {
+  display: flex;
+  padding: 15px 10px;
+
+  .avatar-name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+
+    .name {
+      margin-top: 10px;
+      color: $text-darken-grey;
+    }
+  }
+
+  .review-info {
+    display: flex;
+    flex-direction: column;
+
+    .rating-date {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 15px;
+
+      span {
+        font-size: 13px;
+        color: $text-darken-grey
+      }
+    }
+
+    .commentary {
+      color: $text-secondary;
+      font-family: 'OpenSans-Italic', sans-serif;
+    }
+  }
+}

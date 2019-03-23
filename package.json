@@ -57,6 +57,7 @@
     "query-string": "^5.1.1",
     "raven-js": "^3.26.3",
     "react": "^16.5.2",
+    "react-avatar": "^3.6.0",
     "react-calendar": "^2.18.1",
     "react-color": "^2.14.1",
     "react-copy-to-clipboard": "^5.0.1",

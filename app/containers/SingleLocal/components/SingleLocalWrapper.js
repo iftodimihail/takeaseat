@@ -5,7 +5,6 @@ import ContainerInner from '../../../components/ContainerInner';
 import PageHeader from '../../Localuri/components/PageHeader';
 import Footer from '../../../components/Footer';
 import HorizontalMenu from './HorizontalMenu';
-import ImageSlider from './ImageSlider/ImageSlider';
 import RezervationCalendar from './Calendar';
 
 /**
@@ -23,9 +22,9 @@ class SingleLocal extends React.Component {
           <div style={{ display: 'flex', paddingTop: 145 }}>
             <div className="information-container">
               <HorizontalMenu />
-              <ImageSlider />
+              {this.props.children}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '50%' }}>
               <RezervationCalendar />
             </div>
           </div>

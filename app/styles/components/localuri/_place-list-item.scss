@@ -1,32 +1,48 @@
-.place-list-item {
+.place-container {
   display: flex;
+  justify-content: space-between;
   padding: 15px 20px;
-
-  .details {
-    margin: 0 15px;
-    width: 70%;
-
-    .address {
-      font-family: 'MuseoSans-500', sans-serif;
-      font-size: 16px;
-      margin-top: 10px;
-
-      svg {
-        margin-right: 7px;
-        color: $text-secondary;
-      }
-    }
-
-    .detail-types {
-      span {
-        padding-right: 10px;
-      }
-    }
-  }
+  position: relative;
+  color: inherit;
 
   &:hover {
     transition: all 0.2s linear;
     background: #f7f7f7;
     cursor: pointer;
+    color: inherit;
+  }
+
+  .place-list-item {
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+
+    .details {
+      margin: 0 15px;
+      width: 70%;
+
+      .address {
+        font-family: 'MuseoSans-500', sans-serif;
+        font-size: 16px;
+        margin-top: 10px;
+
+        svg {
+          margin-right: 7px;
+          color: $text-secondary;
+        }
+      }
+
+      .detail-types {
+        span {
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+
+  .reservation-button{
+    position: absolute;
+    top: 25px;
+    right: 25px;
   }
 }

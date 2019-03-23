@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Menu } from 'antd';
 
 /**
@@ -6,10 +7,13 @@ import { Menu } from 'antd';
  */
 class HorizontalMenu extends React.Component {
   state = {
-    current: 'overview'
+    current: this.props.location.pathname.split('/')[2]
   };
 
-  handleClick = (e) => this.setState({ current: e.key });
+  handleClick = (e) => {
+    this.setState({ current: e.key });
+    this.props.history.push(`./${e.key}`);
+  };
 
   render() {
     return (
@@ -18,13 +22,13 @@ class HorizontalMenu extends React.Component {
         selectedKeys={[this.state.current]}
         mode="horizontal"
       >
-        <Menu.Item key="overview">
+        <Menu.Item key="prezentare">
           Prezentare
         </Menu.Item>
-        <Menu.Item key="reviews">
+        <Menu.Item key="recenzii">
           Recenzii
         </Menu.Item>
-        <Menu.Item key="location">
+        <Menu.Item key="locatie">
           Locație
         </Menu.Item>
       </Menu>
@@ -32,4 +36,4 @@ class HorizontalMenu extends React.Component {
   }
 }
 
-export default HorizontalMenu;
+export default withRouter(HorizontalMenu);
