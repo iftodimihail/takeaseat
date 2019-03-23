@@ -1,0 +1,106 @@
+.default-link {
+  text-decoration: underline;
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: $link-secondary;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $link-secondary;
+  }
+
+  &:hover,
+  &:focus:hover,
+  &:active:hover {
+    text-decoration: underline;
+    color: lighten($link-secondary, 10%);
+  }
+}
+
+.link-decoration {
+  text-decoration: underline;
+  color: $link-primary;
+  font-family: 'MuseoSans-500', sans-serif;
+  font-size: 16px;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $link-primary;
+  }
+
+  &:hover,
+  &:focus:hover,
+  &:active:hover {
+    text-decoration: underline;
+    color: lighten($link-primary, 10%);
+  }
+}
+
+.link-secondary {
+  text-decoration: underline;
+  color: $text-darken-grey;
+  font-family: 'MuseoSans-500', sans-serif;
+  font-size: 16px;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $text-darken-grey;
+  }
+
+  &:hover,
+  &:focus:hover,
+  &:active:hover {
+    text-decoration: underline;
+    color: lighten($text-darken-grey, 10%);
+  }
+}
+
+.icon-link {
+  font-size: 16px;
+  font-family: 'MuseoSans-500', sans-serif;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: rgba(0,0,0, .8);
+  }
+
+  &:hover,
+  &:focus:hover,
+  &:active:hover {
+    text-decoration: none;
+    color: rgba(0,0,0, .8);
+  }
+
+  span {
+    line-height: normal;
+  }
+}
+
+.primary-link {
+  font-family: 'OpenSans', sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  color: $primary;
+
+  &:focus,
+  &:active {
+    text-decoration: underline;
+    color: $primary;
+  }
+
+  &:hover,
+  &:focus:hover,
+  &:active:hover {
+    text-decoration: underline;
+    color: lighten($primary, 10%);
+  }
+}

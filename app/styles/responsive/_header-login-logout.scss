@@ -1,0 +1,73 @@
+@media (max-width: 1080px) {
+
+  .eternal-home-header {
+
+    .header-login-logout {
+      margin-left: 5px;
+
+      .logout-btn {
+        padding: 0;
+        background-color: transparent;
+
+        &.ant-btn.ant-btn-loading:not(.ant-btn-circle):not(.ant-btn-circle-outline):not(.ant-btn-icon-only) {
+          padding: 0;
+        }
+
+        svg {
+          margin-right: 0;
+          font-size: 18px;
+          color: #fff;
+        }
+      }
+
+      .login-icon {
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+  }
+
+  .header-login-logout {
+    order: 4;
+    margin-left: 17px;
+    padding-bottom: 2px;
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    .logout-btn {
+      height: auto;
+      padding: 0;
+      background-color: transparent;
+
+      &.ant-btn.ant-btn-loading:not(.ant-btn-circle):not(.ant-btn-circle-outline):not(.ant-btn-icon-only) {
+        padding: 0;
+        opacity: .7;
+
+        &:before {
+          display: none;
+        }
+      }
+
+      span {
+        display: none;
+      }
+
+      svg {
+        margin: 0;
+        font-size: 16px;
+        color: $text-darken-grey;
+      }
+    }
+
+    .login-icon {
+      font-size: 16px;
+      color: $text-darken-grey;
+    }
+  }
+}

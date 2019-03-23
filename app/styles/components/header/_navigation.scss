@@ -1,0 +1,118 @@
+.header-navigation {
+  margin-left: 35px;
+
+  .mobile {
+    display: none;
+  }
+
+  ul {
+    align-items: center;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  a {
+    font-family: 'MuseoSans-500', sans-serif;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+
+  > button {
+    font-size: 18px;
+    color: #fff;
+  }
+}
+
+.header-white-navigation-links {
+  align-items: center;
+  display: flex;
+  padding: 0;
+  margin: 0 20px 0 0;
+  list-style: none;
+
+  a {
+    font-family: 'MuseoSans-500', sans-serif;
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 5px 15px;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+}
+
+.mobile-dropdown-overlay {
+  padding-top: 100px;
+  background: #fff url(../images/mobile-clouds.png) no-repeat left top;
+  background-size: 100% auto;
+  position: fixed;
+  left: 0!important;
+  top: 0!important;
+  right: 0;
+  bottom: 0;
+}
+
+.mobile-header-navigation {
+  position: static;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .ant-dropdown-menu-item {
+    background-color: transparent;
+    margin-bottom: 15px;
+
+    a {
+      margin: 0;
+      padding: 0;
+      color: #000;
+      font-size: 20px;
+      font-family: 'Museo-700', sans-serif;
+
+      &:hover {
+        color: rgba(0,0,0, .7);
+      }
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      background-color: transparent;
+    }
+  }
+}
+
+.close-overlay-mobile {
+  padding: 5px 12px;
+  line-height: 22px;
+  background-color: transparent;
+  color: #000;
+  margin: 0;
+  font-size: 20px;
+  position: absolute;
+  right: 12px;
+  top: 12px;
+
+  &:focus,
+  &:active,
+  &:hover {
+    background-color: transparent;
+    color: rgba(0,0,0, 0.7);
+  }
+}
+
+.memorial-header-margin {
+  margin-left: auto;
+}

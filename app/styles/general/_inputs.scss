@@ -1,0 +1,12 @@
+input,
+.ant-input {
+  font-family: 'OpenSans', sans-serif;
+  outline: none;
+  box-shadow: none;
+  border-radius: $border-radius;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

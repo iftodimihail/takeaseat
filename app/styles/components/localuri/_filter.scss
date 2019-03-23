@@ -1,0 +1,39 @@
+.sidebar {
+  min-width: 250px;
+  border-right: 1px solid #c3c3c3;
+
+  .filter-container {
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .filter-title {
+      font-family: 'MuseoSans-500', sans-serif;
+      font-size: 16px;
+      margin-right: 10px;
+      border-bottom: 1px solid #c3c3c3;
+    }
+
+    .filter-items {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+
+      span {
+        text-decoration: none;
+        color: $text-darken-grey;
+
+        &:hover {
+          color: $primary;
+          transition: all 0.1s ease-in;
+        }
+
+        &.active {
+          color: $primary;
+        }
+      }
+    }
+  }
+}

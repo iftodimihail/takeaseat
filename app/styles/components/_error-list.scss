@@ -1,0 +1,11 @@
+.error-list {
+  border: none;
+  background-color: lighten($form-error, 50%);
+  font-family: 'MuseoSans-500', sans-serif;
+  font-size: 14px;
+  color: $danger;
+
+  &.ant-alert-no-icon {
+    padding: 6px 14px;
+  }
+}

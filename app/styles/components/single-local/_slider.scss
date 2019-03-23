@@ -1,0 +1,28 @@
+.slider-container {
+  height: 400px;
+  padding: 20px 0;
+
+  .slick-slider {
+    height: 100%;
+    width: 100%;
+  }
+
+  .slick-arrow {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+
+    &:before {
+      color: $text-secondary;
+      font-size: 30px;
+    }
+  }
+
+  .slick-next {
+    right: 10px;
+  }
+
+  .slick-prev {
+    left: 10px;
+  }
+}

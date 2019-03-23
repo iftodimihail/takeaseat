@@ -1,0 +1,122 @@
+.home-header {
+  position: relative;
+
+  .search-bar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .search-bar {
+      position: absolute;
+      z-index: 10;
+      width: 500px;
+      top: 230px;
+    }
+
+    .ant-input {
+      height: 49px;
+    }
+
+    .anticon {
+      height: 20px;
+      padding-top: 2px;
+      display: flex;
+
+      svg {
+        font-size: 20px;
+      }
+    }
+
+  }
+
+  .header-menu-container {
+    display: flex;
+    justify-content: center;
+    width: 500px;
+    position: absolute;
+    z-index: 10;
+    top: 300px;
+    margin: auto;
+
+    .menu-option {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0 10px;
+
+      p {
+        font-size: 16px;
+        color: white;
+        font-family: 'OpenSans', sans-serif;
+        font-weight: 600;
+      }
+
+      .menu-icon {
+        width: 60px;
+        height: 60px;
+        border: 1px solid transparent;
+        border-radius: 50%;
+        background-color: $primary;
+        margin: 0 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.2s ease-in;
+
+        svg {
+          color: white;
+          font-size: 32px;
+          transition: all 0.2s ease-in;
+        }
+
+        &:hover {
+          background: white;
+
+          svg {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .home-header {
+
+    .search-bar-container {
+
+      .search-bar {
+        top: 180px;
+        width: 80%;
+      }
+
+      .ant-input {
+        height: 35px;
+      }
+    }
+
+    .header-menu-container {
+      top: 230px;
+
+      .menu-option {
+        margin: 0 5px;
+
+        p {
+          font-size: 14px;
+        }
+
+        .menu-icon {
+          width: 40px;
+          height: 40px;
+          margin: 0 5px;
+
+          svg {
+            font-size: 24px;
+          }
+        }
+      }
+    }
+  }
+}

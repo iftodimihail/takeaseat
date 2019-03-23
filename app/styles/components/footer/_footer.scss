@@ -1,0 +1,31 @@
+.footer {
+  height: 200px;
+  background-color: #272727;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 120px;
+  color: white;
+
+  .logo {
+    font-family: 'OpenSans-Italic', sans-serif;
+  }
+
+  .social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    p {
+      font-size: 16px;
+      font-family: 'OpenSans', sans-serif;
+      font-weight: bold;
+    }
+
+    svg {
+      font-size: 28px;
+      margin: 0 10px;
+    }
+  }
+}

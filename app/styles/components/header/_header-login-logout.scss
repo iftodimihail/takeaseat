@@ -1,0 +1,71 @@
+.eternal-home-header {
+
+  .header-login-logout {
+
+    .login-btn-icon,
+    .logout-btn {
+      padding: 0 12px 0 13px;
+      color: #946372;
+      background-color: #fff;
+      text-transform: uppercase;
+
+      svg {
+        margin-right: 10px;
+      }
+    }
+
+    .logout-btn {
+
+      &.ant-btn.ant-btn-loading:not(.ant-btn-circle):not(.ant-btn-circle-outline):not(.ant-btn-icon-only) {
+        padding: 0 12px 0 13px;
+      }
+    }
+  }
+}
+
+.header-login-logout {
+  margin-left: 25px;
+
+  .logout-btn,
+  .login-btn-icon {
+    padding: 0;
+    color: $text-darken-grey;
+    white-space: nowrap;
+    font-family: 'MuseoSans-500', sans-serif;
+    text-decoration: none;
+    outline: none;
+    height: 34px;
+    border-radius: $border-radius;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 5px;
+    }
+  }
+
+  .logout-btn {
+    border: none;
+    line-height: 1;
+
+    &.ant-btn.ant-btn-loading:not(.ant-btn-circle):not(.ant-btn-circle-outline):not(.ant-btn-icon-only) {
+      padding: 0;
+
+      &:before {
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+      }
+
+      .anticon-loading {
+        display: none;
+      }
+    }
+  }
+
+  .mobile {
+    display: none;
+  }
+}

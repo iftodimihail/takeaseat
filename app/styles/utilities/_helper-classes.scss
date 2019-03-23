@@ -1,0 +1,155 @@
+/*** Flex helper classes ***/
+.flex {
+  display: flex;
+}
+
+.flex-nowrap {
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+  white-space: initial;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
+.flex-center {
+  justify-content: center;
+}
+
+.flex-right {
+  justify-content: flex-end;
+}
+
+.flex-left {
+  justify-content: flex-start;
+}
+
+.flex-vertical-top {
+  align-items: flex-start;
+}
+
+.flex-vertical-bottom {
+  align-items: flex-end;
+}
+
+.flex-vertical-center {
+  align-items: center;
+}
+
+.flex-list-grid {
+  display: flex;
+  flex-wrap: wrap;
+  transition: all .1s ease-in-out;
+
+  &.loading {
+    opacity: .4;
+  }
+}
+
+/*** Text helper classes ***/
+.text-ellipsis {
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+/*** Titles ***/
+.section-title {
+  padding-bottom: 20px;
+  position: relative;
+  text-align: center;
+  color: #000;
+  font-family: 'Museo-700', sans-serif;
+  font-size: 30px;
+  line-height: normal;
+
+  &:after {
+    content: '';
+    display: block;
+    background-color: $primary;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 64px;
+  }
+}
+
+.card-title {
+  font-family: 'Museo-700', sans-serif;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.sub-section-title {
+  position: relative;
+  font-family: 'Museo-700', sans-serif;
+  color: #000;
+  font-size: 24px;
+  line-height: normal;
+  text-align: center;
+}
+
+.article-title {
+  font-family: 'Museo-700', sans-serif;
+  color: #000;
+  font-size: 20px;
+  line-height: normal;
+  text-align: left;
+}
+
+.section-sub-title {
+  text-align: center;
+  font-family: 'OpenSans-Italic', sans-serif;
+  color: $text-darken-grey;
+  line-height: normal;
+  font-size: 18px;
+}
+
+.no-data-found {
+  padding: 25px 0;
+  text-align: center;
+  font-family: 'OpenSans-Italic', sans-serif;
+  color: $text-darken-grey;
+}
+
+.page-title {
+  font-family: 'Museo-700', sans-serif;
+  color: $text-darken-grey;
+  font-size: 30px;
+  line-height: normal;
+}

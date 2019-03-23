@@ -1,0 +1,48 @@
+.select-location {
+  display: flex;
+  margin: 0 0 15px 0;
+
+  .location-label {
+    color: $text-darken-grey;
+    font-size: 16px;
+    text-align: left;
+    line-height: normal;
+    padding-top: 8px;
+    width: 170px;
+    margin-right: 10px;
+
+    &:after {
+      color: $text-darken-grey;
+      display: inline;
+      content: "*";
+      margin: 0 8px 0 4px;
+      position: relative;
+      top: -2px;
+      font-size: 12px;
+    }
+  }
+
+  .location-fields {
+    align-items: flex-start;
+    justify-content: space-between;
+    display: flex;
+    width: calc(100% - 181px);
+
+    .ant-form-item-control {
+      line-height: normal;
+    }
+
+    .ant-form-item-control-wrapper {
+      width: 100%;
+    }
+
+    .ant-row {
+      width: 32%;
+      margin: 0;
+    }
+  }
+}
+
+.memorial-registration-step-1 .memorial-details-section-3 .location-fields .ant-form-item-control-wrapper {
+  width: 100%;
+}

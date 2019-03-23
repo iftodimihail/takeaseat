@@ -1,0 +1,26 @@
+.ant-upload-drag {
+  padding: 30px;
+
+  &.ant-upload {
+    border: none;
+    background-color: #f7f7f7;
+
+    .ant-upload {
+      padding: 0;
+    }
+  }
+
+  .upload-drop-title {
+    font-family: "OpenSans", sans-serif;
+    color: $default;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+}
+
+.ant-upload-drag-icon {
+  margin-bottom: 15px;
+  line-height: 1;
+  font-size: 65px;
+  color: $text-darken-grey;
+}

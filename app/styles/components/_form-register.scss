@@ -1,0 +1,67 @@
+.checkboxes-group {
+
+  .ant-form-item {
+    margin: 0 0 5px 0;
+  }
+
+  .ant-form-item-control {
+    line-height: normal;
+  }
+}
+
+.form-section-fields {
+  min-width: 440px;
+  width: 440px;
+
+  .ant-form-item:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.form-sections-container {
+  display: flex;
+  justify-content: center;
+
+  .separator {
+    position: relative;
+    width: 80px;
+
+    span {
+      display: block;
+      padding: 7px 0 8px 0;
+      font-size: 13px;
+      color: $text-darken-grey;
+      background-color: #fff;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+      z-index: 2;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: $border-primary;
+    }
+  }
+
+  .form-section-social-login {
+    min-width: 440px;
+    padding-left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+
+.register-checkboxes-group {
+  max-width: 540px;
+  margin: 50px auto 45px auto;
+}

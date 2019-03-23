@@ -1,0 +1,16 @@
+.label {
+  font-family: 'Museo-700', sans-serif;
+  color: #fff;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 7px;
+  padding: 4px 7px;
+
+  &.label-primary {
+    background-color: $label-primary;
+  }
+
+  &.label-secondary {
+    background-color: $label-secondary;
+  }
+}

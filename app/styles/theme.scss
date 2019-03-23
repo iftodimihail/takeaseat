@@ -1,0 +1,17 @@
+/*** node modules ***/
+@import '../../node_modules/slick-carousel/slick/slick.css';
+@import '../../node_modules/slick-carousel/slick/slick-theme.css';
+
+/*** local ***/
+@import './variables';
+@import './app';
+@import './utilities/all';
+
+/*** general ***/
+@import './general/all';
+
+/*** components ***/
+@import './components/all';
+
+/*** responsive ***/
+@import './responsive/all';

@@ -1,0 +1,17 @@
+.header-logo {
+  display: flex;
+  align-items: center;
+
+  .mobile {
+    display: none;
+  }
+
+  h1 {
+    font-family: 'OpenSans-Italic', sans-serif;
+    border-left: 1px solid #fff;
+    margin: 0  0 0 13px;
+    padding-left: 16px;
+    color: #fff;
+    font-size: 14px;
+  }
+}

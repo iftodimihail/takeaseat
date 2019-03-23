@@ -1,0 +1,28 @@
+@import 'fonts';
+
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+
+.app-wrapper {
+  min-height: 100%;
+}
+
+body {
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: $default;
+}
+
+body.fontLoaded {
+  font-family: 'OpenSans', sans-serif;
+}
+
+[ant-click-animating-without-extra-node]:after,
+.ant-click-animating-node {
+  animation: 0s;
+}

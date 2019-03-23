@@ -1,0 +1,10 @@
+.social-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 260px;
+
+  button {
+    margin-bottom: 10px;
+  }
+}

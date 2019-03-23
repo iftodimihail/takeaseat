@@ -1,0 +1,254 @@
+@media (max-width: 1400px) {
+
+  .header-logo {
+    align-items: flex-start;
+    flex-direction: column;
+
+    h1 {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+
+  .eternal-home-header {
+    padding: 30px 25px;
+  }
+
+  .header-logo {
+
+    h1 {
+      display: none;
+    }
+  }
+
+  .header-search {
+    width: auto;
+
+    .pre-text {
+      display: none;
+    }
+  }
+
+  .header-navigation {
+    margin-left: 15px;
+  }
+
+  .memorial-header-margin {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 1080px) {
+  .header-logo {
+    order: 1;
+  }
+
+  .header-navigation {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .header-search {
+    position: relative;
+    order: 3;
+    margin-left: 5px;
+    padding-bottom: 2px;
+    width: 30px;
+
+    .tablet {
+      display: block;
+      width: 100%;
+
+      img {
+       width: 17px;
+      }
+    }
+
+    .desktop {
+      display: none;
+    }
+  }
+
+  .eternal-white-header {
+
+    .header-search {
+      margin-left: 13px;
+
+      > a {
+        font-size: 16px;
+        color: $text-darken-grey;
+      }
+    }
+  }
+
+  .header-navigation a {
+    padding: 5px 10px;
+  }
+
+  .eternal-share-btn {
+    order: 4;
+    margin-left: 6px;
+
+    > span {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+
+  .eternal-white-header {
+    padding: 14px 0;
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+    }
+
+    &.no-search {
+
+      .header-navigation {
+        margin-left: 0;
+      }
+
+      .eternal-share-btn {
+        margin-left: auto;
+      }
+    }
+
+    .logo {
+      order: 2;
+      margin-left: 15px;
+    }
+
+    .header-navigation {
+      order: 1;
+      margin-left: 0;
+
+      > button {
+        color: $text-darken-grey;
+      }
+    }
+
+    .header-search {
+      margin-left: auto;
+    }
+
+    &.memorial-register-white-header {
+
+      .logo {
+        margin: 0;
+        order: 1;
+      }
+
+      > div {
+        order: 2;
+      }
+    }
+  }
+
+  .eternal-home-header {
+    padding: 10px 18px;
+  }
+
+  .header-navigation {
+    order: 1;
+    margin-left: 0;
+
+    .desktop {
+      display: none;
+    }
+
+    .mobile {
+      outline: none;
+      cursor: pointer;
+      display: block;
+    }
+  }
+
+  .header-search {
+    margin-left: auto;
+
+    .tablet {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .header-logo {
+    order: 2;
+    margin-left: 12px;
+
+    .mobile {
+      display: block;
+      text-decoration: none;
+      outline: none;
+
+      img {
+        margin-right: 10px;
+      }
+
+      span {
+        font-family: 'Museo-700', sans-serif;
+        font-size: 15px;
+        color: #fff;
+        line-height: normal;
+      }
+    }
+
+    .desktop {
+      display: none;
+    }
+  }
+
+  .memorial-header-margin {
+    margin-left: 0;
+  }
+
+  .volume-btn-margin {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 390px) {
+
+  .header-logo,
+  .eternal-white-header {
+
+    .logo {
+
+      .mobile span {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media (max-width: 360px) {
+
+  .header-logo,
+  .eternal-white-header {
+
+    .logo {
+
+      .mobile > span {
+        display: none;
+      }
+    }
+  }
+
+  .header-logo .mobile span {
+    display: none;
+  }
+}

@@ -1,0 +1,130 @@
+.login-popup {
+
+  .ant-popover-inner {
+    box-shadow: 0 0 8px 1px rgba(0,0,0, .1);
+  }
+
+  .ant-popover-content {
+    border-radius: $border-radius;
+    border: 1px solid rgba(0,0,0, .1);
+  }
+
+  > .ant-popover-content > .ant-popover-arrow {
+    box-shadow: none;
+    border-top: 1px solid rgba(0,0,0, .1);
+    border-left: 1px solid rgba(0,0,0, .1);
+  }
+
+  .ant-popover-inner-content {
+    padding: 13px;
+  }
+}
+
+.login-popup-inner {
+
+  input {
+    position: relative;
+    border-color: $input-border;
+    outline: none;
+    font-family: 'OpenSans', sans-serif;
+    color: $text-darken-grey;
+    background-color: $input-bg;
+    padding: 0 13px;
+    height: 36px;
+    display: block;
+
+    &:hover {
+      z-index: 2;
+    }
+
+    &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: $text-darken-grey;
+      opacity: 1; /* Firefox */
+    }
+
+    &::-ms-input-placeholder { /* Microsoft Edge */
+      color: $text-darken-grey;
+    }
+
+    &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: $text-darken-grey;
+    }
+
+    &:focus,
+    &:active,
+    &:hover {
+      outline: none;
+      border-color: $input-hover;
+    }
+  }
+
+  .email-field {
+
+    input {
+      margin-bottom: -1px;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .password-field {
+
+    input {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  .ant-row {
+    margin: 0;
+    padding: 0;
+
+    .ant-form-item-children {
+      display: block;
+    }
+  }
+
+  .flex {
+    margin-top: 10px;
+    flex-direction: column;
+
+    button {
+      width: 100%;
+      font-size: 16px;
+      order: 1;
+      height: 38px;
+      line-height: 36px;
+    }
+
+    a {
+      margin-top: 5px;
+      color: $primary;
+      order: 2;
+    }
+  }
+}
+
+.login-form {
+
+  .errors-container {
+    text-align: center;
+
+    .error-list {
+      max-width: 560px;
+      display: inline-block;
+    }
+  }
+
+  .form-sections-container {
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .form-section-fields {
+    padding-top: 28px;
+  }
+
+  .separator {
+    min-height: 180px;
+  }
+}

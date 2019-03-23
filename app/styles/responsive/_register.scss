@@ -1,0 +1,140 @@
+.registration-form {
+
+  .mobile {
+    display: none;
+  }
+}
+
+.login-form-button {
+  width: 225px;
+  max-width: 100%;
+}
+
+.forgot-password-button {
+  width: 275px;
+  height: 36px;
+  line-height: 36px;
+}
+
+@media (max-width: 1080px) {
+
+  .registration-form {
+
+    .form-section-fields {
+      min-width: 350px;
+    }
+
+    .form-section-social-login {
+      min-width: 350px;
+    }
+  }
+
+  .login-form {
+
+    .ant-form-item {
+
+      .ant-form-item-label ~ .ant-form-item-control-wrapper {
+        width: calc(100% - 130px);
+      }
+
+      .ant-form-item-label {
+        width: 130px;
+      }
+    }
+  }
+}
+
+@media (max-width: 850px) {
+
+  .login-form {
+
+    .form-section-social-login {
+      width: 310px;
+    }
+  }
+
+  .registration-form {
+
+    .form-section-fields {
+      min-width: auto;
+    }
+
+    .form-section-social-login {
+      padding-left: 0;
+      min-width: auto;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+
+  .registration-form {
+
+    .desktop {
+      display: none;
+    }
+
+    .form-section-fields {
+      padding-top: 0;
+      width: 100%;
+    }
+
+    .mobile {
+      display: block;
+
+      .social-login {
+        max-width: 275px;
+        margin: 45px auto 0 auto;
+      }
+    }
+
+    .form-sections-container {
+      flex-direction: column;
+
+      .form-section-social-login,
+      .separator {
+        display: none;
+      }
+
+      .ant-form-item  {
+        margin-bottom: 7px;
+
+        .ant-form-item-label ~ .ant-form-item-control-wrapper {
+          width: 100%;
+        }
+      }
+
+      .ant-form-item-label {
+        display: none;
+      }
+    }
+  }
+
+  .login-form .form-sections-container {
+    margin-bottom: 4px;
+  }
+
+  .register-checkboxes-group {
+    margin: 15px 0 20px 0;
+
+    .ant-row {
+      margin-bottom: 10px;
+    }
+
+    .ant-checkbox {
+      position: absolute;
+      left: 0;
+      top: 1px;
+    }
+
+    .ant-checkbox-wrapper + span,
+    .ant-checkbox + span {
+      display: block;
+      padding-left: 30px;
+    }
+  }
+
+  .login-form-button {
+    width: 275px;
+  }
+}

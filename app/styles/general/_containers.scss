@@ -1,0 +1,16 @@
+.main-container-inner {
+  display: block;
+  max-width: 1336px;
+  padding: 0 25px;
+  margin: 50px auto;
+
+  > p {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 24px;
+    margin-bottom: 35px;
+  }
+}
+
+.spacing-top {
+  padding-top: 70px;
+}

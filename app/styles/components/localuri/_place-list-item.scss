@@ -1,0 +1,32 @@
+.place-list-item {
+  display: flex;
+  padding: 15px 20px;
+
+  .details {
+    margin: 0 15px;
+    width: 70%;
+
+    .address {
+      font-family: 'MuseoSans-500', sans-serif;
+      font-size: 16px;
+      margin-top: 10px;
+
+      svg {
+        margin-right: 7px;
+        color: $text-secondary;
+      }
+    }
+
+    .detail-types {
+      span {
+        padding-right: 10px;
+      }
+    }
+  }
+
+  &:hover {
+    transition: all 0.2s linear;
+    background: #f7f7f7;
+    cursor: pointer;
+  }
+}

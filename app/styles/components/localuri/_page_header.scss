@@ -1,0 +1,18 @@
+.places-page-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url('../images/home-header/restaurant1.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 150px;
+
+  span {
+    font-size: 24px;
+    color: white;
+    font-family: 'OpenSans', sans-serif;
+    padding-left: 50px;
+    top: 40px;
+    position: absolute;
+  }
+}

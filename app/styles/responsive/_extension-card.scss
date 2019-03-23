@@ -1,0 +1,100 @@
+@media (max-width: 1150px) {
+
+  .extensions-memorial {
+
+    .btn-with-icon > span {
+      display: block;
+      text-overflow: ellipsis;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .extension-card {
+
+      .flex-vertical-center {
+        flex-direction: column;
+      }
+
+      .btn-with-icon {
+        max-width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        order: 2;
+      }
+
+      .link-decoration {
+        order: 1;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 970px) {
+
+  .extensions-memorial {
+
+    .extension-card {
+      padding: 32px 20px;
+      max-width: 350px;
+      margin: 0 auto 30px auto;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+
+  .extensions-memorial {
+
+    .extension-card {
+      padding: 32px 30px;
+      max-width: 350px;
+      margin: 0 auto 30px auto;
+
+      .btn-with-icon {
+        order: 1;
+      }
+
+      .link-decoration {
+        order: 2;
+        margin-bottom: 0;
+      }
+
+      .flex-vertical-center {
+        flex-direction: row;
+      }
+    }
+  }
+}
+
+@media (max-width: 740px) {
+
+  .extensions-memorial {
+    padding: 50px 0 0 0;
+
+    .section-sub-title {
+      margin: 0 auto;
+    }
+
+    .extension-subtitle-container {
+      margin-bottom: 20px;
+    }
+
+    .additional-subtitle {
+      display: none;
+    }
+
+    .extension-card {
+      padding: 24px;
+
+      p {
+        margin-bottom: 15px;
+      }
+
+      .extension-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.darken-opacity-container {
+  position: absolute;
+  top: 0;
+  z-index: 5;
+  width: 100%;
+  opacity: 0.4;
+  background-color: black;
+}
+
+.hovered {
+  opacity: 0.32;
+}

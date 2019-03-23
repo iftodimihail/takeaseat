@@ -1,0 +1,323 @@
+.ant-btn {
+  padding: 0 25px;
+  height: 50px;
+  line-height: 50px;
+  text-shadow: none;
+  box-shadow: none;
+
+  .anticon-loading {
+    vertical-align: text-bottom;
+  }
+
+  &.only-icon {
+    padding: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+
+    [class*='fa-'] {
+      color: #fff;
+      font-size: 18px;
+    }
+  }
+
+  &.ant-btn-sm {
+    font-size: 14px;
+    padding: 0 15px;
+    height: 36px;
+    line-height: 36px;
+  }
+}
+
+.ant-btn-primary {
+  font-size: 18px;
+  font-family: 'Museo-700', sans-serif;
+  color: #fff;
+  box-shadow: inset 2px -3px 0px -1px rgba($btn-primary, 0.2),
+              3px -3px 0px -1px rgba($btn-primary, 0.2),
+              0 4px 2px -2px rgba($btn-primary, 0.2);
+  background-color: $btn-primary;
+  border: 1px solid $btn-primary-border;
+  border-bottom: 2px solid $btn-primary-border;
+  border-radius: $border-radius;
+
+  &:hover {
+    background-color: lighten($btn-primary, 2%);
+    border: 1px solid lighten($btn-primary-border, 3%);
+    border-bottom: 2px solid lighten($btn-primary-border, 3%);
+  }
+
+  &.active,
+  &:active,
+  &:focus {
+    box-shadow: inset 2px -3px 0px -1px rgba($btn-primary, 0.2),
+                3px -3px 0px -1px rgba($btn-primary, 0.2),
+                0 4px 2px -2px rgba($btn-primary, 0.2);
+    background-color: $btn-primary;
+    border-color: $btn-primary-border;
+  }
+
+  &.disabled,
+  &[disabled],
+  &.disabled:hover,
+  &[disabled]:hover,
+  &.disabled:focus,
+  &[disabled]:focus,
+  &.disabled:active,
+  &[disabled]:active,
+  &.disabled.active,
+  &[disabled].active {
+    color: #fff;
+    background-color: $btn-primary;
+    border-color: $btn-primary-border;
+    box-shadow: none;
+    opacity: .8;
+  }
+
+  &.btn-facebook {
+    box-shadow: inset 2px -3px 0px -1px rgba($btn-facebook, 0.2),
+    3px -3px 0px -1px rgba($btn-facebook, 0.2),
+    0 4px 2px -2px rgba($btn-facebook, 0.2);
+    background-color: $btn-facebook;
+    border: 1px solid $btn-facebook-border;
+    border-bottom: 2px solid $btn-facebook-border;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: lighten($btn-facebook, 2%);
+      border: 1px solid lighten($btn-facebook-border, 3%);
+      border-bottom: 2px solid lighten($btn-facebook-border, 3%);
+    }
+
+
+    &.active,
+    &:active,
+    &:focus {
+      box-shadow: inset 2px -3px 0px -1px rgba($btn-facebook, 0.2),
+      3px -3px 0px -1px rgba($btn-facebook, 0.2),
+      0 4px 2px -2px rgba($btn-facebook, 0.2);
+      background-color: $btn-facebook;
+      border-color: $btn-facebook-border;
+    }
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active {
+      color: #fff;
+      background-color: $btn-facebook;
+      border-color: $btn-facebook-border;
+      box-shadow: none;
+      opacity: .8;
+    }
+
+  }
+
+  &.btn-google {
+    box-shadow: inset 2px -3px 0px -1px rgba($btn-google, 0.2),
+    3px -3px 0px -1px rgba($btn-google, 0.2),
+    0 4px 2px -2px rgba($btn-google, 0.2);
+    background-color: $btn-google;
+    border: 1px solid $btn-google-border;
+    border-bottom: 2px solid $btn-google-border;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: lighten($btn-google, 2%);
+      border: 1px solid lighten($btn-google-border, 3%);
+      border-bottom: 2px solid lighten($btn-google-border, 3%);
+    }
+
+
+    &.active,
+    &:active,
+    &:focus {
+      box-shadow: inset 2px -3px 0px -1px rgba($btn-google, 0.2),
+      3px -3px 0px -1px rgba($btn-google, 0.2),
+      0 4px 2px -2px rgba($btn-google, 0.2);
+      background-color: $btn-google;
+      border-color: $btn-google-border;
+    }
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active {
+      color: #fff;
+      background-color: $btn-google;
+      border-color: $btn-google-border;
+      box-shadow: none;
+      opacity: .8;
+    }
+  }
+
+  &.btn-twitter {
+    box-shadow: inset 2px -3px 0px -1px rgba($btn-twitter, 0.2),
+    3px -3px 0px -1px rgba($btn-twitter, 0.2),
+    0 4px 2px -2px rgba($btn-twitter, 0.2);
+    background-color: $btn-twitter;
+    border: 1px solid $btn-twitter-border;
+    border-bottom: 2px solid $btn-twitter-border;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: lighten($btn-twitter, 2%);
+      border: 1px solid lighten($btn-twitter-border, 3%);
+      border-bottom: 2px solid lighten($btn-twitter-border, 3%);
+    }
+
+
+    &.active,
+    &:active,
+    &:focus {
+      box-shadow: inset 2px -3px 0px -1px rgba($btn-twitter, 0.2),
+      3px -3px 0px -1px rgba($btn-twitter, 0.2),
+      0 4px 2px -2px rgba($btn-twitter, 0.2);
+      background-color: $btn-twitter;
+      border-color: $btn-twitter-border;
+    }
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active {
+      color: #fff;
+      background-color: $btn-twitter;
+      border-color: $btn-twitter-border;
+      box-shadow: none;
+      opacity: .8;
+    }
+
+  }
+
+  &.btn-secondary {
+    box-shadow: inset 2px -3px 0px -1px rgba($btn-secondary, 0.2),
+    3px -3px 0px -1px rgba($btn-secondary, 0.2),
+    0 4px 2px -2px rgba($btn-secondary, 0.2);
+    background-color: $btn-secondary;
+    border: 1px solid $btn-secondary-border;
+    border-bottom: 2px solid $btn-secondary-border;
+    border-radius: $border-radius;
+
+    &:hover {
+      background-color: lighten($btn-secondary, 2%);
+      border: 1px solid lighten($btn-secondary-border, 3%);
+      border-bottom: 2px solid lighten($btn-secondary-border, 3%);
+    }
+
+
+    &.active,
+    &:active,
+    &:focus {
+      box-shadow: inset 2px -3px 0px -1px rgba($btn-secondary, 0.2),
+      3px -3px 0px -1px rgba($btn-secondary, 0.2),
+      0 4px 2px -2px rgba($btn-secondary, 0.2);
+      background-color: $btn-secondary;
+      border-color: $btn-secondary-border;
+    }
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active {
+      color: #fff;
+      background-color: $btn-secondary;
+      border-color: $btn-secondary-border;
+      box-shadow: none;
+      opacity: .8;
+    }
+  }
+
+  &.with-icon {
+    position: relative;
+    padding-left: 50px;
+
+    svg {
+      text-align: center;
+      width: 50px;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.btn-with-icon {
+  text-decoration: none;
+  box-shadow: none;
+  border: 0;
+  outline: none;
+  font-family: 'MuseoSans-500', sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  color: $text-primary;
+  background-color: #fff;
+  border-radius: $border-radius;
+  padding: 11.5px 18px;
+  display: flex;
+  align-items: center;
+
+  &.active,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+    color: $text-primary;
+    border: 0;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.btn-upload {
+  font-size: 14px;
+  font-family: 'MuseoSans-500', sans-serif;
+  line-height: normal;
+  text-decoration: none;
+  box-shadow: none;
+  color: $text-darken-grey;
+  border: 1px solid $btn-upload-border;
+  height: auto;
+  min-height: auto;
+  padding: 7px 10px;
+
+  span {
+    margin-left: 5px
+  }
+
+  &.active,
+  &:hover,
+  &:active,
+  &:focus {
+    border: 1px solid darken($btn-upload-border, 10%);
+    text-decoration: none;
+    color: darken($text-darken-grey, 10%);
+    outline: none;
+    box-shadow: none;
+  }
+}

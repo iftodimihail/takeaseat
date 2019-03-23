@@ -1,0 +1,35 @@
+@media (max-width: 991px) {
+
+  .landing-page-section-2-bg {
+    background: none;
+  }
+
+  .recent-friends-family {
+    background: url(../images/friends-family.jpg) no-repeat center bottom;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 740px) {
+
+  .recent-friends-family .sub-section-title {
+    margin-bottom: 20px;
+  }
+
+  .family-card {
+    position: relative;
+    padding-left: 100px;
+    text-align: left;
+    justify-content: center;
+    min-height: 76px;
+    margin-bottom: 20px;
+
+    .image-round {
+      margin: 0;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}

@@ -1,0 +1,75 @@
+.footer-navigation {
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .footer-link {
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      font-family: 'MuseoSans-500', sans-serif;
+      color: #000;
+      font-size: 14px;
+    }
+  }
+
+  .nav-title {
+    margin-bottom: 20px;
+    color: #000;
+    font-family: 'Museo-700', sans-serif;
+    font-size: 16px;
+  }
+
+  .social-icons {
+    display: flex;
+    width: 85px;
+    justify-content: space-between;
+    margin: 0 0 20px 0;
+
+    a {
+      transition: all .2s ease;
+      color: #000;
+
+      &:hover {
+        opacity: .6;
+      }
+
+      svg {
+        font-size: 20px
+      }
+    }
+  }
+
+  .donate {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-top: 18px;
+
+    a {
+      transition: all .2s ease;
+      text-decoration: none;
+      padding: 0 13px;
+      border-radius: $border-radius;
+      color: $link-primary;
+      font-family: 'Museo-700', sans-serif;
+      font-size: 14px;
+      height: 36px;
+      line-height: 36px;
+      background-color: #edf6f7;
+      margin-bottom: 15px;
+
+      &:hover {
+        opacity: .8;
+      }
+    }
+  }
+}

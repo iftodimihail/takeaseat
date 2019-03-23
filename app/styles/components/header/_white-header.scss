@@ -1,0 +1,152 @@
+.eternal-white-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  padding: 0;
+
+  .mobile {
+    display: none;
+
+    img {
+      margin-right: 10px;
+    }
+
+    span {
+      font-family: 'Museo-700', sans-serif;
+      font-size: 15px;
+      color: $text-darken-grey;
+      line-height: normal;
+    }
+  }
+
+  .logout-btn {
+    line-height: normal;
+    min-height: auto;
+    height: auto;
+    font-size: 16px;
+    font-family: 'MuseoSans-500', sans-serif;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $text-darken-grey;
+    outline: none;
+    padding: 0;
+    border: 0;
+
+    i {
+      display: none;
+    }
+
+    &.disabled,
+    &[disabled],
+    &.disabled:hover,
+    &[disabled]:hover,
+    &.disabled:focus,
+    &[disabled]:focus,
+    &.disabled:active,
+    &[disabled]:active,
+    &.disabled.active,
+    &[disabled].active {
+      background-color: #fff;
+      padding: 0;
+    }
+
+    > .anticon + span,
+    > span + .anticon {
+      margin: 0;
+    }
+  }
+
+  .header-navigation {
+
+    a {
+      color: $text-darken-grey;
+
+      &:hover {
+        color: rgba(0,0,0, .7);
+      }
+    }
+  }
+
+  .header-search {
+
+    .ant-input-search {
+      border: 1px solid $text-darken-grey;
+      border-radius: $border-radius;
+      color: $text-darken-grey;
+
+      &:hover {
+        border: 1px solid $text-darken-grey;
+      }
+
+      input {
+        color: $text-darken-grey;
+
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+          color: $input-placeholder;
+          opacity: 1; /* Firefox */
+        }
+
+        &::-ms-input-placeholder { /* Microsoft Edge */
+          color: $input-placeholder;
+        }
+
+        &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+          color: $input-placeholder;
+        }
+
+        &:hover {
+          border: 1px solid $input-placeholder;
+        }
+      }
+    }
+
+    .ant-input-suffix {
+
+      button {
+        color: $text-darken-grey;
+      }
+    }
+
+    .pre-text {
+      color: $text-darken-grey;
+    }
+  }
+
+  &.no-search {
+
+    .header-navigation {
+      margin-left: auto;
+    }
+  }
+}
+
+.eternal-share-btn {
+  font-size: 16px;
+  font-family: 'MuseoSans-500', sans-serif;
+  display: flex;
+  align-items: center;
+  color: $text-darken-grey;
+  margin-left: 11px;
+
+  svg {
+    margin-right: 5px;
+  }
+
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: rgba(0,0,0, .7);
+  }
+}
+
+.header-shadow {
+  background-color: #fff;
+  box-shadow: 0 0 33px -12px rgba(0, 0, 0, .8);
+  position: relative;
+  z-index: 2;
+}
