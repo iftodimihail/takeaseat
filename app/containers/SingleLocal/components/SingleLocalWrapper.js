@@ -24,7 +24,7 @@ class SingleLocal extends React.Component {
               <HorizontalMenu />
               {this.props.children}
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '50%' }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '50%', paddingTop: 50 }}>
               <RezervationCalendar />
             </div>
           </div>

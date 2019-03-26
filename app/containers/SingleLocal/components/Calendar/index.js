@@ -16,6 +16,8 @@ class ReservationCalendar extends Component {
     return (
       <div>
         <Calendar
+          next2Label={null}
+          prev2Label={null}
           minDate={moment().toDate()}
           maxDate={moment().add(6, 'months').toDate()}
           onChange={this.onChange}

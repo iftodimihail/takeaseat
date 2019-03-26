@@ -10,6 +10,12 @@ class HorizontalMenu extends React.Component {
     current: this.props.location.pathname.split('/')[2]
   };
 
+  componentDidUpdate(prevProps) {
+    if (prevProps.location.pathname.split('/')[2] !== this.props.location.pathname.split('/')[2]) {
+      this.setState({ current: this.props.location.pathname.split('/')[2] });
+    }
+  }
+
   handleClick = (e) => {
     this.setState({ current: e.key });
     this.props.history.push(`./${e.key}`);

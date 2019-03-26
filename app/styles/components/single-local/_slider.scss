@@ -2,6 +2,10 @@
   height: 400px;
   padding: 20px 0;
 
+  .slick-list {
+    height: inherit;
+  }
+
   .slick-slider {
     height: 100%;
     width: 100%;
@@ -11,9 +15,10 @@
     position: absolute;
     width: 30px;
     height: 30px;
+    z-index: 10;
 
     &:before {
-      color: $text-secondary;
+      color: $text-lighten-grey;
       font-size: 30px;
     }
   }

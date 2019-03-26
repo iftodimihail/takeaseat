@@ -1,16 +1,16 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { sliderSettings } from './settings';
-import { headerSliderImages } from '../../../../images/home-header';
+import { singlePlace } from '../../../../images/single-place';
 import ObjectFitImage from '../../../../components/ObjectFitImage';
 
 /**
  * ImageSlider component
  */
 class ImageSlider extends React.Component {
-  headerPictureComponent = (image, index) => (
-    <div key={image}>
-      <ObjectFitImage src={image} alt={`header ${index}`} />
+  singlePlaceRender = (place) => (
+    <div key={place.id}>
+      <ObjectFitImage src={place.img} />
     </div>
   );
 
@@ -18,15 +18,7 @@ class ImageSlider extends React.Component {
     return (
       <div className="slider-container">
         <Slider {...sliderSettings}>
-          <div>
-            1
-          </div>
-          <div>
-            2
-          </div>
-          <div>
-            3
-          </div>
+          {singlePlace.map(this.singlePlaceRender)}
         </Slider>
       </div>
     );
