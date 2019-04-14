@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ListItem = (props) => (
-  <NavLink to={`${props.name.toLowerCase().split(' ').join('-')}/prezentare`} className="place-container">
+  <NavLink to={props.name.toLowerCase().split(' ').join('-')} className="place-container">
     <div className="place-list-item">
       <div>
         <img src={props.img} alt="bar" />

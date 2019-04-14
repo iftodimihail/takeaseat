@@ -1,18 +1,18 @@
 .information-container {
   width: 50%;
 
-  .ant-menu-item {
+  .ant-tabs-tab-active {
+    color: $primary;
+    border-bottom: 1px solid $primary;
 
-    &:hover,
-    &:focus,
-    &:active {
+    &:hover {
       color: $primary;
-      border-bottom: 2px solid $primary;
+      border-bottom: 1px solid $primary;
     }
+
   }
 
-  .ant-menu-item-selected {
-    color: $primary;
-    border-bottom: 2px solid $primary;
+  .ant-tabs-ink-bar, .ant-tabs-ink-bar-animated {
+    background-color: $primary;
   }
 }

@@ -14,17 +14,14 @@ class ReservationCalendar extends Component {
 
   render() {
     return (
-      <div>
-        <Calendar
-          next2Label={null}
-          prev2Label={null}
-          minDate={moment().toDate()}
-          maxDate={moment().add(6, 'months').toDate()}
-          onChange={this.onChange}
-          value={this.state.date}
-          locale="ro-RO"
-        />
-      </div>
+      <Calendar
+        next2Label={null}
+        prev2Label={null}
+        minDate={moment().toDate()}
+        maxDate={moment().add(6, 'months').toDate()}
+        onChange={this.onChange}
+        locale="ro-RO"
+      />
     );
   }
 }
