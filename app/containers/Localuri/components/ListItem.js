@@ -5,8 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 
 const ListItem = (props) => (
-  <NavLink to={props.name.toLowerCase().split(' ').join('-')} className="place-container">
-    <div className="place-list-item">
+  <div className="place-container">
+    <NavLink to={props.name.toLowerCase().split(' ').join('-')} className="place-list-item">
       <div>
         <img src={props.img} alt="bar" />
       </div>
@@ -20,11 +20,11 @@ const ListItem = (props) => (
           <span>{props.kitchenType}</span>
         </div>
       </div>
-    </div>
-    <NavLink to={`${props.name.toLowerCase().split(' ').join('-')}/prezentare`} className="reservation-button">
+    </NavLink>
+    <NavLink to={`${props.name.toLowerCase().split(' ').join('-')}`} className="reservation-button">
       <Button type="primary" size="small">Rezervă</Button>
     </NavLink>
-  </NavLink>
+  </div>
 );
 
 export default ListItem;
