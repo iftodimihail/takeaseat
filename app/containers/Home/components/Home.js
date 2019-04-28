@@ -6,7 +6,7 @@ import SearchBar from '../../../components/SearchBar';
 import DarkenContainer from '../../../components/DarkenContainer';
 import Menu from './Menu';
 import ContainerInner from '../../../components/ContainerInner';
-import PlaceCards from './PlaceCards';
+import PlaceCards from './PlaceCards/index';
 import Footer from '../../../components/Footer';
 
 /**
