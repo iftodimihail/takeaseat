@@ -1,0 +1,38 @@
+.reservation-tabs-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 50%;
+  padding-top: 1px;
+
+  .ant-tabs {
+    width: 450px;
+  }
+
+  .ant-tabs-tab {
+    padding: 0;
+    width: 200px;
+  }
+
+  .ant-tabs-nav {
+    width: 100%;
+
+    & > div {
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .ant-tabs-ink-bar {
+      display: none;
+      background-color: transparent;
+    }
+  }
+
+  .tab-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}

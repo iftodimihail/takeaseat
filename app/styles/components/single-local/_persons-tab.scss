@@ -1,0 +1,16 @@
+.persons-tab-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  button {
+    background: whitesmoke;
+    width: 60px;
+    height: 60px;
+    margin: 5px 18px 5px 0;
+    padding: 0 20px;
+  }
+
+  button:nth-child(6n) {
+    margin-right: 0;
+  }
+}

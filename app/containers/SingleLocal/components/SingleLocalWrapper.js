@@ -5,7 +5,7 @@ import Container from '../../ContainerPage';
 import ContainerInner from '../../../components/ContainerInner';
 import PageHeader from '../../Localuri/components/PageHeader';
 import Footer from '../../../components/Footer';
-import RezervationCalendar from './Calendar';
+import ReservationTab from './Reservation';
 import ImageSlider from './ImageSlider';
 import Reviews from './Reviews';
 import NotFound from '../../NotFound';
@@ -30,8 +30,8 @@ class SingleLocal extends React.Component {
                 <Tabs.TabPane tab="Locație" key="3"><NotFound /></Tabs.TabPane>
               </Tabs>
             </div>
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-start', width: '50%', paddingTop: 62 }}>
-              <RezervationCalendar />
+            <div className="reservation-tabs-container">
+              <ReservationTab />
             </div>
           </div>
         </ContainerInner>

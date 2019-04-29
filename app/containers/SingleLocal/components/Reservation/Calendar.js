@@ -3,14 +3,13 @@ import Calendar from 'react-calendar';
 import moment from 'moment/moment';
 
 /**
- * RezervationCalendar component
+ * ReservationCalendar component
  */
 class ReservationCalendar extends Component {
-  state = {
-    date: new Date()
+  onChange = (date) => {
+    this.props.onSelectDate(date);
+    this.props.nextTab('2');
   };
-
-  onChange = (date) => this.setState({ date });
 
   render() {
     return (
@@ -18,9 +17,12 @@ class ReservationCalendar extends Component {
         next2Label={null}
         prev2Label={null}
         minDate={moment().toDate()}
-        maxDate={moment().add(6, 'months').toDate()}
+        maxDate={moment().add(1, 'months').toDate()}
+        minDetail="month"
         onChange={this.onChange}
+        value={this.props.data || null}
         locale="ro-RO"
+        showNeighboringMonth={false}
       />
     );
   }

@@ -1,1 +1,1 @@
-export default from './components/SingleLocalRoutes';
+export default from './components/SingleLocalWrapper';

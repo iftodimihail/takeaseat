@@ -1,5 +1,6 @@
 import React from 'react';
 import { Rate } from 'antd';
+import { NavLink } from 'react-router-dom';
 import ObjectFitImage from '../ObjectFitImage';
 import DarkenContainer from '../DarkenContainer';
 
@@ -21,7 +22,7 @@ class PlaceCard extends React.Component {
 
   render() {
     return (
-      <a className="place-card" style={{ zIndex: 30 }}>
+      <NavLink to={this.props.name.toLowerCase().split(' ').join('-')} className="place-card" style={{ zIndex: 30 }}>
         <ObjectFitImage src={this.props.cardImage} />
         <div onMouseLeave={this.disableHoverStyle} onMouseEnter={this.enableHoverStyle}>
           <p className="place-name">{this.props.name}</p>
@@ -37,7 +38,7 @@ class PlaceCard extends React.Component {
           onMouseLeave={this.disableHoverStyle}
           onMouseEnter={this.enableHoverStyle}
         />
-      </a>
+      </NavLink>
     );
   }
 }
