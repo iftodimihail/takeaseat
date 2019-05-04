@@ -10,6 +10,9 @@ import PlaceCard from '../../../../components/PlaceCard/index';
 import { fetchAllPlacesStart } from './actions';
 import { DAEMON } from '../../../../utils/constants';
 
+/**
+ * PlaceCards component
+ */
 class PlaceCards extends React.Component {
   componentDidMount() {
     const { data, onFetch } = this.props;
@@ -26,10 +29,10 @@ class PlaceCards extends React.Component {
         {!isEmpty(data) ? data.map((placeCard) => (
           <PlaceCard
             key={placeCard.id}
-            name={placeCard.name}
             cardImage={placeCard.img}
             rate={Math.random() * 5}
             votes={Math.random() * 240}
+            {...placeCard}
           />)) : null}
       </div>
     );

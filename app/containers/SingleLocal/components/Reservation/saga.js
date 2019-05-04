@@ -1,35 +1,36 @@
-// /*
-//  * Memorial Candles Saga
-//  */
-// import { put, takeLatest, call } from 'redux-saga/effects';
-// import axios from '../../../../axios';
-// import {
-//   fetchAllPlacesSuccess, fetchAllPlacesError
-// } from './actions';
-// import { FETCH_ALL_PLACES_START } from './constants';
-// import config from '../../../../config';
-//
-// /**
-//  * Fetch places start - api call
-//  * @function fetchAllPlacesStart
-//  */
-// export function* fetchAllPlacesStartSaga() {
-//   try {
-//     const response = yield call(() => axios.get('/localuri'));
-//     yield put(fetchAllPlacesSuccess(response.data.data));
-//   } catch (error) {
-//     try {
-//       yield put(fetchAllPlacesError(error.response.data.errors));
-//     } catch (internal) {
-//       yield put(fetchAllPlacesError(config.generalError));
-//     }
-//   }
-// }
-//
-// /**
-//  * Places saga
-//  * @function fetchMemorialSaga
-//  */
-// export default function* fetchMemorialCandlesSaga() {
-//   yield takeLatest(FETCH_ALL_PLACES_START, fetchAllPlacesStartSaga);
-// }
+/*
+ * Memorial Candles Saga
+ */
+import { put, takeLatest, call } from 'redux-saga/effects';
+import axios from '../../../../axios';
+import {
+  makeReservationSuccess,
+  makeReservationError
+} from './actions';
+import { MAKE_RESERVATION_START } from './constants';
+import config from '../../../../config';
+
+/**
+ * Make reservation - api call
+ * @function makeReservationStartSaga
+ */
+export function* makeReservationStartSaga({ data }) {
+  try {
+    yield call(() => axios.post('/reservations', data));
+    yield put(makeReservationSuccess());
+  } catch (error) {
+    try {
+      yield put(makeReservationError(error.response.data.errors));
+    } catch (internal) {
+      yield put(makeReservationError(config.generalError));
+    }
+  }
+}
+
+/**
+ * Reservation saga
+ * @function reservationSaga
+ */
+export default function* reservationSaga() {
+  yield takeLatest(MAKE_RESERVATION_START, makeReservationStartSaga);
+}

@@ -1,6 +1,10 @@
 .information-container {
   width: 50%;
 
+  .ant-tabs-nav {
+    padding-top: 10px;
+  }
+
   .ant-tabs-tab-active {
     color: $primary;
     border-bottom: 1px solid $primary;
@@ -14,5 +18,6 @@
 
   .ant-tabs-ink-bar, .ant-tabs-ink-bar-animated {
     background-color: $primary;
+    height: 2px;
   }
 }

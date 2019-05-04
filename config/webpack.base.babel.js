@@ -17,6 +17,11 @@ module.exports = (options) => ({
   module: {
     rules: [
       {
+        test: /\.json$/,
+        exclude: /node_modules/,
+        loader: 'json-loader'
+      },
+      {
         test: /\.js$/, // Transform all .js files required somewhere with Babel
         exclude: /node_modules/,
         use: {

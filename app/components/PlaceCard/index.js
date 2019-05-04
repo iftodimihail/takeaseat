@@ -22,7 +22,7 @@ class PlaceCard extends React.Component {
 
   render() {
     return (
-      <NavLink to={this.props.name.toLowerCase().split(' ').join('-')} className="place-card" style={{ zIndex: 30 }}>
+      <NavLink to={this.props.uniqueLink} className="place-card">
         <ObjectFitImage src={this.props.cardImage} />
         <div onMouseLeave={this.disableHoverStyle} onMouseEnter={this.enableHoverStyle}>
           <p className="place-name">{this.props.name}</p>
