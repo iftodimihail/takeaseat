@@ -74,7 +74,6 @@ class ReservationTabs extends React.Component {
   handleOkHour = (hour) => {
     const { date, persons } = this.props;
     this.setState({ seeForm: false });
-    console.log(hour);
     this.props.onSelectHour(hour);
     if (!date) {
       this.nextTab('1');
@@ -114,7 +113,7 @@ class ReservationTabs extends React.Component {
           tab={null}
           key="4"
         >
-          <InformationForm {...this.props} localId={this.state.localId} />
+          <InformationForm nextTab={this.nextTab} {...this.props} localId={this.state.localId} />
         </Tabs.TabPane>
       </Tabs>
     );
@@ -136,6 +135,7 @@ const mapStateToProps = (state) => {
     date: reservationState.get('date'),
     persons: reservationState.get('persons'),
     hour: reservationState.get('hour'),
+    loading: reservationState.get('loading'),
     places: placesState ? placesState.get('data').toJS() : {}
   };
 };
@@ -150,7 +150,7 @@ const mapDispatchToProps = (dispatch) => ({
   onSelectDate: (date) => dispatch(selectReservationDate(date)),
   onSelectPersons: (persons) => dispatch(selectNrOfPersons(persons)),
   onSelectHour: (hour) => dispatch(selectReservationHour(hour)),
-  makeReservation: (data) => dispatch(makeReservationStart(data))
+  makeReservation: (data, form, onSuccess) => dispatch(makeReservationStart(data, form, onSuccess))
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

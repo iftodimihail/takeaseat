@@ -46,12 +46,16 @@ export function selectReservationHour(hour) {
 /**
  * @function makeReservationStart
  * @param data
- * @returns {{type: string, data: *}}
+ * @param form
+ * @param onSuccess
+ * @returns {{type: string, data: *, form: *}}
  */
-export function makeReservationStart(data) {
+export function makeReservationStart(data, form, onSuccess) {
   return {
     type: MAKE_RESERVATION_START,
-    data
+    data,
+    form,
+    onSuccess
   };
 }
 

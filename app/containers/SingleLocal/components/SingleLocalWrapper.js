@@ -22,6 +22,7 @@ class SingleLocal extends React.Component {
         </Helmet>
         <PageHeader />
         <ContainerInner>
+          <div>Moo Bistro</div>
           <div style={{ display: 'flex', paddingTop: 145 }}>
             <div className="information-container">
               <Tabs defaultActiveKey="1">

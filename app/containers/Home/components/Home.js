@@ -12,7 +12,7 @@ import Footer from '../../../components/Footer';
 /**
  * Home component
  */
-class Home extends React.PureComponent {
+class Home extends React.Component {
   render() {
     return (
       <Container>
@@ -26,7 +26,7 @@ class Home extends React.PureComponent {
           <Menu />
         </div>
         <ContainerInner>
-          <p>Cele mai populare restaurante, baruri, cafenele sau pub-uri din Iași</p>
+          <p>Cele mai populare restaurante, baruri, cafenele sau pub-uri</p>
           <PlaceCards />
         </ContainerInner>
         <Footer />

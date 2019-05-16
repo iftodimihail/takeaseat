@@ -36,7 +36,7 @@ function reservationReducer(state = initialState, action) {
         .set('loading', false);
     default:
       return state;
- }
+  }
 }
 
 export default reservationReducer;

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Rate, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import { faMapMarkerAlt, faMoneyBill, faUtensils } from '@fortawesome/free-solid-svg-icons';
 
 const ListItem = (props) => (
   <div className="place-container">
@@ -15,9 +15,9 @@ const ListItem = (props) => (
         <Rate disabled allowHalf defaultValue={Math.floor(parseFloat((Math.random() * 5).toFixed(1)) * 2) / 2} />
         <p className="address"><FontAwesomeIcon icon={faMapMarkerAlt} />{props.address}</p>
         <div className="detail-types">
-          <span>{props.priceType}</span>
-          <span>{props.placeType}</span>
-          <span>{props.kitchenType}</span>
+          <FontAwesomeIcon icon={faMoneyBill} /><span>{props.priceType}</span>
+          <span style={{ paddingRight: 15 }}>{props.placeType}</span>
+          <FontAwesomeIcon icon={faUtensils} /><span>{props.kitchenType}</span>
         </div>
       </div>
     </NavLink>

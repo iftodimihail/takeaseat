@@ -11,7 +11,7 @@
 
 .ant-tabs-ink-bar {
   height: 1px;
-  background-color: $tabs-active;
+  background-color: $primary;
 }
 
 .ant-tabs-nav {
@@ -29,12 +29,21 @@
   }
 
   .ant-tabs-tab-active {
-    color: $tabs-active;
+    color: $primary;
 
     &:focus,
     &:active,
     &:hover {
-      color: $tabs-active;
+      color: $primary;
     }
   }
+}
+
+.ant-tabs-tab-prev.ant-tabs-tab-arrow-show,
+.ant-tabs-tab-next.ant-tabs-tab-arrow-show {
+  display: none;
+}
+
+.ant-tabs-nav-container-scrolling {
+  padding: 0;
 }
