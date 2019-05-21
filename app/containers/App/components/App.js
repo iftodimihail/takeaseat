@@ -7,6 +7,7 @@ import { ProtectedRoute, PublicRoute, UnauthenticatedRoute } from '../../../comp
 import Home from '../../Home';
 import Localuri from '../../Localuri';
 import SingleLocal from '../../SingleLocal';
+import ReservationConfirmation from '../../ReservationConfirm';
 import NotFound from '../../NotFound';
 import ProtectedPage from '../../ProtectedPage';
 import UnauthenticatedPage from '../../UnauthenticatedPage';
@@ -20,6 +21,7 @@ const App = () => (
     <Switch>
       <PublicRoute exact path="/" component={Home} />
       <PublicRoute exact path="/localuri" component={Localuri} />
+      <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
       <PublicRoute path="/:localName" component={SingleLocal} />
       <ProtectedRoute path="/protected-page" component={ProtectedPage} type="clients" />
       <UnauthenticatedRoute path="/unauthenticated-page" component={UnauthenticatedPage} />

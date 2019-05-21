@@ -17,7 +17,8 @@ import config from '../../../../config';
  */
 export function* makeReservationStartSaga({ data, form, onSuccess }) {
   try {
-    yield call(() => axios.post('/reservations', data));
+    const reservationInformation = { ...data, ...form.getFieldsValue() };
+    yield call(() => axios.post('/reservations', reservationInformation));
     yield put(makeReservationSuccess());
     form.resetFields();
     onSuccess();
