@@ -1,7 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-
-const requiredMessage = 'Acest câmp este obligatoriu';
+import { requiredMessage } from '../../../../utils/errors';
 
 /**
  * InformationForm component

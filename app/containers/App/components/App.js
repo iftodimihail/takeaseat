@@ -12,6 +12,7 @@ import NotFound from '../../NotFound';
 import ProtectedPage from '../../ProtectedPage';
 import UnauthenticatedPage from '../../UnauthenticatedPage';
 import ForgotPassword from '../../ForgotPassword';
+import ReviewForm from '../../ReviewForm';
 
 const App = () => (
   <div className="app-wrapper">
@@ -21,6 +22,7 @@ const App = () => (
     <Switch>
       <PublicRoute exact path="/" component={Home} />
       <PublicRoute exact path="/localuri" component={Localuri} />
+      <PublicRoute path="/reviews/:reservationId" component={ReviewForm} />
       <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
       <PublicRoute path="/:localName" component={SingleLocal} />
       <ProtectedRoute path="/protected-page" component={ProtectedPage} type="clients" />

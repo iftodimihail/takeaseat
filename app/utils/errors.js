@@ -22,3 +22,5 @@ export const errorList = (errors) => {
 };
 
 export const display = (form, errors, data) => form.setFields(parser(errors, data));
+
+export const requiredMessage = 'Acest câmp este obligatoriu';
