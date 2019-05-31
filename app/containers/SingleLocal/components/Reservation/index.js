@@ -3,7 +3,6 @@ import { Tabs } from 'antd';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import isEmpty from 'lodash/isEmpty';
 import moment from 'moment/moment';
 import { faCalendarAlt, faClock, faUser } from '@fortawesome/free-regular-svg-icons';
 import reducer from './reducer';
@@ -28,18 +27,8 @@ import axios from '../../../../axios';
 class ReservationTabs extends React.Component {
   state = {
     currentTab: '1',
-    localId: 0,
     seeForm: false
   };
-
-  componentDidMount() {
-    if (isEmpty(this.props.places)) {
-      axios.get(`/localuri/${this.props.match.params.localName}`)
-        .then((res) => this.setState({ localId: res.data.data.id }));
-    } else {
-      this.setState({ localId: this.props.places.filter((place) => place.uniqueLink === this.props.match.params.localName)[0].id });
-    }
-  }
 
   componentDidUpdate() {
     const { date, persons, hour } = this.props;
@@ -113,7 +102,7 @@ class ReservationTabs extends React.Component {
           tab={null}
           key="4"
         >
-          <InformationForm nextTab={this.nextTab} {...this.props} localId={this.state.localId} />
+          <InformationForm nextTab={this.nextTab} {...this.props} localId={this.props.localId} />
         </Tabs.TabPane>
       </Tabs>
     );

@@ -27,7 +27,8 @@ class ReservationConfirmation extends React.Component {
   }
 
   onReservationConfirm = () => {
-    axios.put(`/reservations/confirm-arrival/${this.props.match.params.reservationId}`, { ...this.state.reservationData, confirmed: true })
+    axios.put(`/reservations/confirm-arrival/${this.props.match.params.reservationId}`,
+      { local_id: this.state.reservationData.local_id, confirmed: true })
       .then(() => this.setState({ confirmed: true }));
   };
 
