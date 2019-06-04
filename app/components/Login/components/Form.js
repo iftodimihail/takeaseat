@@ -13,7 +13,7 @@ class LoginForm extends React.Component {
 
     form.validateFields((err, values) => {
       if (!err) {
-        onLogin({ ...values, userType: this.props.userType || 'clients' });
+        onLogin({ ...values, userType: this.props.userType || 'admins' });
       }
     });
   };

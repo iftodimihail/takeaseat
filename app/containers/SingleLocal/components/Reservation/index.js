@@ -19,7 +19,6 @@ import {
   selectNrOfPersons,
   selectReservationHour, makeReservationStart
 } from './actions';
-import axios from '../../../../axios';
 
 /**
  * ReservationTabs component

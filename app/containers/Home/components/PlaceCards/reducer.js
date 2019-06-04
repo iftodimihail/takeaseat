@@ -2,7 +2,8 @@ import { fromJS } from 'immutable';
 import {
   FETCH_ALL_PLACES_START,
   FETCH_ALL_PLACES_SUCCESS,
-  FETCH_ALL_PLACES_ERROR
+  FETCH_ALL_PLACES_ERROR,
+  SELECT_FILTER
 } from './constants';
 import initialState from './initialState';
 
@@ -19,6 +20,10 @@ function placesReducer(state = initialState, action) {
       return state
         .set('error', fromJS(action.error))
         .set('loading', false);
+    case SELECT_FILTER:
+      return state
+        .set('filteredData', fromJS(action.filteredData))
+        .set('filters', fromJS(action.newFilter));
     default:
       return state;
   }

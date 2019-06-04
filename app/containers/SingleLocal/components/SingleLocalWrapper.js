@@ -9,7 +9,7 @@ import Footer from '../../../components/Footer';
 import ReservationTab from './Reservation';
 import ImageSlider from './ImageSlider';
 import Reviews from './Reviews';
-import NotFound from '../../NotFound';
+import Location from './Location';
 import axios from '../../../axios';
 
 /**
@@ -43,7 +43,7 @@ class SingleLocal extends React.Component {
               <Tabs defaultActiveKey="1">
                 <Tabs.TabPane tab="Prezentare" key="1"><ImageSlider /></Tabs.TabPane>
                 <Tabs.TabPane tab="Recenzii" key="2"><Reviews {...this.state} /></Tabs.TabPane>
-                <Tabs.TabPane tab="Locație" key="3"><NotFound /></Tabs.TabPane>
+                <Tabs.TabPane tab="Locație" key="3"><Location /></Tabs.TabPane>
               </Tabs>
             </div>
             <div className="reservation-tabs-container">

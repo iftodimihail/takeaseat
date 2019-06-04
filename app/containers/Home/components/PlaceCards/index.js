@@ -30,8 +30,6 @@ class PlaceCards extends React.Component {
           <PlaceCard
             key={placeCard.id}
             cardImage={placeCard.img}
-            rate={Math.random() * 5}
-            votes={Math.random() * 240}
             {...placeCard}
           />)) : null}
       </div>

@@ -1,7 +1,8 @@
 import {
   FETCH_ALL_PLACES_START,
   FETCH_ALL_PLACES_SUCCESS,
-  FETCH_ALL_PLACES_ERROR
+  FETCH_ALL_PLACES_ERROR,
+  SELECT_FILTER
 } from './constants';
 
 export function fetchAllPlacesStart() {
@@ -21,5 +22,13 @@ export function fetchAllPlacesError(error) {
   return {
     type: FETCH_ALL_PLACES_ERROR,
     error
+  };
+}
+
+export function selectFilter(newFilter, filteredData) {
+  return {
+    type: SELECT_FILTER,
+    newFilter,
+    filteredData
   };
 }

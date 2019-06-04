@@ -10,7 +10,7 @@ import SingleLocal from '../../SingleLocal';
 import ReservationConfirmation from '../../ReservationConfirm';
 import NotFound from '../../NotFound';
 import ProtectedPage from '../../ProtectedPage';
-import UnauthenticatedPage from '../../UnauthenticatedPage';
+import Login from '../../../components/Login';
 import ForgotPassword from '../../ForgotPassword';
 import ReviewForm from '../../ReviewForm';
 
@@ -24,10 +24,10 @@ const App = () => (
       <PublicRoute exact path="/localuri" component={Localuri} />
       <PublicRoute path="/reviews/:reservationId" component={ReviewForm} />
       <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
-      <PublicRoute path="/:localName" component={SingleLocal} />
       <ProtectedRoute path="/protected-page" component={ProtectedPage} type="clients" />
-      <UnauthenticatedRoute path="/unauthenticated-page" component={UnauthenticatedPage} />
+      <UnauthenticatedRoute path="/admin/login" component={Login} />
       <UnauthenticatedRoute path="/forgot-password" component={ForgotPassword} />
+      <PublicRoute path="/:localName" component={SingleLocal} />
       <PublicRoute path="" component={NotFound} />
     </Switch>
     <GlobalPreloader />

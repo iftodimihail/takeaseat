@@ -19,7 +19,7 @@ export function* loginStart(action) {
   const { email, password, userType } = action;
 
   try {
-    const response = yield call(() => axios.post(`${userType}/login`, { email, password, user_type: userType }));
+    const response = yield call(() => axios.post('/auth/login', { email, password, user_type: userType }));
     const token = response.data.data.access_token;
     const { user } = response.data.data;
 

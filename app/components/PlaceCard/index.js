@@ -18,8 +18,6 @@ class PlaceCard extends React.Component {
 
   disableHoverStyle = () => this.setState({ hovered: false });
 
-  randRating = this.props.rate < 2.5 ? this.props.rate + 2.5 : this.props.rate;
-
   render() {
     return (
       <NavLink to={this.props.uniqueLink} className="place-card">
@@ -27,8 +25,8 @@ class PlaceCard extends React.Component {
         <div onMouseLeave={this.disableHoverStyle} onMouseEnter={this.enableHoverStyle}>
           <p className="place-name">{this.props.name}</p>
           <div className="place-rating">
-            <Rate disabled allowHalf defaultValue={Math.floor(parseFloat(this.randRating.toFixed(1)) * 2) / 2} />
-            <div className="rating-text">({this.randRating.toFixed(2)} / {Math.round(this.props.votes)} voturi)</div>
+            <Rate disabled allowHalf defaultValue={Math.floor(parseFloat(this.props.rating / this.props.totalReviews) * 2) / 2} />
+            <div className="rating-text">({this.props.rating / this.props.totalReviews || 0} / {Math.round(this.props.totalReviews)} voturi)</div>
           </div>
         </div>
         <DarkenContainer

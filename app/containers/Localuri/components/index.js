@@ -7,7 +7,7 @@ import reducer from '../../Home/components/PlaceCards/reducer';
 import saga from '../../Home/components/PlaceCards/saga';
 import injectSaga from '../../../utils/injectSaga';
 import injectReducer from '../../../utils/injectReducer';
-import { fetchAllPlacesStart } from '../../Home/components/PlaceCards/actions';
+import { fetchAllPlacesStart, selectFilter } from '../../Home/components/PlaceCards/actions';
 import Container from '../../ContainerPage';
 import ContainerInner from '../../../components/ContainerInner';
 import Footer from '../../../components/Footer';
@@ -36,8 +36,8 @@ class Localuri extends React.Component {
         <PageHeader />
         <ContainerInner>
           <div className="flex" style={{ paddingTop: 100 }}>
-            <SidebarFilters />
-            <List data={this.props.data} />
+            <SidebarFilters {...this.props} />
+            <List {...this.props} />
           </div>
         </ContainerInner>
         <Footer />
@@ -57,7 +57,9 @@ const mapStateToProps = (state) => {
   const placesState = state.get('places');
 
   return {
-    data: placesState.get('data').toJS()
+    data: placesState.get('data').toJS(),
+    filters: placesState.get('filters').toJS(),
+    filteredData: placesState.get('filteredData').toJS()
   };
 };
 
@@ -68,7 +70,8 @@ const mapStateToProps = (state) => {
  * @returns {object} onLogin
  */
 const mapDispatchToProps = (dispatch) => ({
-  onFetch: () => dispatch(fetchAllPlacesStart())
+  onFetch: () => dispatch(fetchAllPlacesStart()),
+  onSelectFilter: (newFilter, data) => dispatch(selectFilter(newFilter, data))
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

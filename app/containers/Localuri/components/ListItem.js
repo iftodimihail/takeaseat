@@ -12,7 +12,7 @@ const ListItem = (props) => (
       </div>
       <div className="details">
         <h2>{props.name}</h2>
-        <Rate disabled allowHalf defaultValue={Math.floor(parseFloat((Math.random() * 5).toFixed(1)) * 2) / 2} />
+        <Rate disabled allowHalf defaultValue={Math.floor(parseFloat(props.rating / props.totalReviews) * 2) / 2} />
         <p className="address"><FontAwesomeIcon icon={faMapMarkerAlt} />{props.address}</p>
         <div className="detail-types">
           <FontAwesomeIcon icon={faMoneyBill} /><span>{props.priceType}</span>
