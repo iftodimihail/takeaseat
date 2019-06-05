@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import Container from '../../ContainerPage';
 import HeaderSlider from './HeaderSlider';
@@ -13,6 +14,8 @@ import Footer from '../../../components/Footer';
  * Home component
  */
 class Home extends React.Component {
+  onSearch = (value) => this.props.history.push(`/localuri?nume=${value}`);
+
   render() {
     return (
       <Container>
@@ -22,7 +25,7 @@ class Home extends React.Component {
         <div className="home-header">
           <HeaderSlider />
           <DarkenContainer height="400px" />
-          <SearchBar />
+          <SearchBar onSearch={this.onSearch} />
           <Menu />
         </div>
         <ContainerInner>
@@ -35,4 +38,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home;
+export default withRouter(Home);

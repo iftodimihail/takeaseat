@@ -1,7 +1,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
 import isEmpty from 'lodash/isEmpty';
 import reducer from '../../Home/components/PlaceCards/reducer';
 import saga from '../../Home/components/PlaceCards/saga';
@@ -21,9 +23,20 @@ import { DAEMON } from '../../../utils/constants';
  */
 class Localuri extends React.Component {
   componentDidMount() {
-    const { data, onFetch } = this.props;
-    if (isEmpty(data)) {
+    const { onFetch, location } = this.props;
+
+    if (this.props.location.search) {
+      onFetch(queryString.parse(location.search));
+    } else {
       onFetch();
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { onFetch, location } = this.props;
+
+    if (prevProps.location.search !== this.props.location.search) {
+      onFetch(queryString.parse(location.search));
     }
   }
 
@@ -70,7 +83,7 @@ const mapStateToProps = (state) => {
  * @returns {object} onLogin
  */
 const mapDispatchToProps = (dispatch) => ({
-  onFetch: () => dispatch(fetchAllPlacesStart()),
+  onFetch: (filters = {}) => dispatch(fetchAllPlacesStart(filters)),
   onSelectFilter: (newFilter, data) => dispatch(selectFilter(newFilter, data))
 });
 
@@ -78,4 +91,4 @@ const withConnect = connect(mapStateToProps, mapDispatchToProps);
 const withSaga = injectSaga({ key: 'places', saga, mode: DAEMON });
 const withReducer = injectReducer({ key: 'places', reducer });
 
-export default compose(withReducer, withSaga, withConnect)(Localuri);
+export default compose(withReducer, withSaga, withConnect, withRouter)(Localuri);

@@ -5,9 +5,10 @@ import {
   SELECT_FILTER
 } from './constants';
 
-export function fetchAllPlacesStart() {
+export function fetchAllPlacesStart(filters) {
   return {
-    type: FETCH_ALL_PLACES_START
+    type: FETCH_ALL_PLACES_START,
+    filters
   };
 }
 

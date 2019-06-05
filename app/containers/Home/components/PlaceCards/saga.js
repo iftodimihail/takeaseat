@@ -13,9 +13,9 @@ import config from '../../../../config';
  * Fetch places start - api call
  * @function fetchAllPlacesStart
  */
-export function* fetchAllPlacesStartSaga() {
+export function* fetchAllPlacesStartSaga({ filters }) {
   try {
-    const response = yield call(() => axios.get('/localuri'));
+    const response = yield call(() => axios.get('/localuri', { params: { ...filters } }));
     yield put(fetchAllPlacesSuccess(response.data.data));
   } catch (error) {
     try {
