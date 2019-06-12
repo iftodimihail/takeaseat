@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import queryString from 'query-string';
-import isEmpty from 'lodash/isEmpty';
 import reducer from '../../Home/components/PlaceCards/reducer';
 import saga from '../../Home/components/PlaceCards/saga';
 import injectSaga from '../../../utils/injectSaga';
@@ -22,6 +21,10 @@ import { DAEMON } from '../../../utils/constants';
  * Localuri component
  */
 class Localuri extends React.Component {
+  state = {
+    filterScreen: true
+  };
+
   componentDidMount() {
     const { onFetch, location } = this.props;
 
@@ -40,6 +43,10 @@ class Localuri extends React.Component {
     }
   }
 
+  showFilterScreen = () => this.setState({ filterScreen: true });
+
+  showPlacesScreen = () => this.setState({ filterScreen: false });
+
   render() {
     return (
       <Container>
@@ -49,8 +56,16 @@ class Localuri extends React.Component {
         <PageHeader />
         <ContainerInner>
           <div className="flex" style={{ paddingTop: 100 }}>
-            <SidebarFilters {...this.props} />
-            <List {...this.props} />
+            <SidebarFilters
+              showPlacesScreen={this.showPlacesScreen}
+              filterScreen={this.state.filterScreen}
+              {...this.props}
+            />
+            <List
+              showFilterScreen={this.showFilterScreen}
+              filterScreen={this.state.filterScreen}
+              {...this.props}
+            />
           </div>
         </ContainerInner>
         <Footer />

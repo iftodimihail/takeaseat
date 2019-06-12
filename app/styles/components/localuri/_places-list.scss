@@ -1,0 +1,42 @@
+.places-list {
+  width: 100%;
+
+}
+.mobile-filter {
+  display: none;
+}
+
+@media (max-width: 994px) {
+  .mobile-filter {
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+
+    .search-bar-container {
+      width: 100%;
+      margin-left: 15px;
+    }
+
+    .ant-input-search {
+      height: 36px;
+    }
+  }
+}
+
+@media (max-width: 740px) {
+  .places-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+@media (max-width: 667px) {
+  .places-list {
+    justify-content: center;
+  }
+}
+

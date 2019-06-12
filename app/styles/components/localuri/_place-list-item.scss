@@ -20,7 +20,7 @@
 
     .details {
       margin: 0 15px;
-      width: 70%;
+      max-width: 300px;
 
       .address {
         font-family: 'MuseoSans-500', sans-serif;
@@ -42,11 +42,49 @@
         }
       }
     }
+
+    .darken-opacity-container {
+      display: none;
+    }
   }
 
   .reservation-button{
     position: absolute;
     top: 25px;
     right: 25px;
+  }
+}
+
+@media (max-width: 740px) {
+  .place-container {
+    padding: 0;
+    margin: 15px 0;
+
+    .place-list-item {
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+
+      .details {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+
+        .address > svg,
+        .detail-types,
+        h2 {
+            color: #fff;
+        }
+      }
+
+      .darken-opacity-container {
+        display: block;
+      }
+    }
+
+    .reservation-button{
+      display: none;
+    }
   }
 }

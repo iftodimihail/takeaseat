@@ -1,6 +1,7 @@
 .sidebar {
   min-width: 250px;
   border-right: 1px solid #c3c3c3;
+  padding-right: 10px;
 
   .filter-container {
     padding: 15px 0;
@@ -35,5 +36,45 @@
         }
       }
     }
+  }
+}
+
+.sidebar-filter-container {
+  padding-top: 15px;
+
+  .ant-input-search {
+    height: 36px;
+  }
+}
+
+.results-btn {
+  display: none;
+}
+
+@media (max-width: 994px) {
+  .sidebar-filter-container {
+    width: 100%;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0;
+
+    .filter-container {
+      width: 50%;
+    }
+
+    .search-bar-container {
+      display: none;
+    }
+
+  }
+
+  .results-btn {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
   }
 }
