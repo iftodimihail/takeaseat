@@ -6,7 +6,6 @@ import { Input } from 'antd';
  */
 class SearchBar extends React.Component {
   render() {
-    console.log(this.props.size || 'large');
     return (
       <div className="search-bar-container">
         <Input.Search

@@ -20,8 +20,8 @@ export function* loginStart(action) {
 
   try {
     const response = yield call(() => axios.post('/auth/login', { email, password, user_type: userType }));
-    const token = response.data.data.access_token;
-    const { user } = response.data.data;
+    const user = response.data.data;
+    const { token } = user;
 
     /* Send user and token to localStorage */
     store.set(config.storeKey.token, token);

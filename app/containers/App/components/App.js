@@ -9,10 +9,10 @@ import Localuri from '../../Localuri';
 import SingleLocal from '../../SingleLocal';
 import ReservationConfirmation from '../../ReservationConfirm';
 import NotFound from '../../NotFound';
-import ProtectedPage from '../../ProtectedPage';
 import Login from '../../../components/Login';
 import ForgotPassword from '../../ForgotPassword';
 import ReviewForm from '../../ReviewForm';
+import AdminPanel from '../../AdminPanel';
 
 const App = () => (
   <div className="app-wrapper">
@@ -24,8 +24,8 @@ const App = () => (
       <PublicRoute exact path="/localuri" component={Localuri} />
       <PublicRoute path="/reviews/:reservationId" component={ReviewForm} />
       <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
-      <ProtectedRoute path="/protected-page" component={ProtectedPage} type="clients" />
-      <UnauthenticatedRoute path="/admin/login" component={Login} />
+      <ProtectedRoute path="/admin/panel" component={AdminPanel} type="admins" />
+      <UnauthenticatedRoute rediret="/admin/panel" path="/admin/login" component={Login} />
       <UnauthenticatedRoute path="/forgot-password" component={ForgotPassword} />
       <PublicRoute path="/:localName" component={SingleLocal} />
       <PublicRoute path="" component={NotFound} />

@@ -29,7 +29,7 @@ export function* checkTokenStartSaga() {
 
   if (token && userType) {
     try {
-      const response = yield call(() => axios.get(`${userType}/me`, {
+      const response = yield call(() => axios.get('auth/me', {
         headers: {
           Authorization: `Bearer ${token}`
         }
