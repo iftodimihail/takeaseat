@@ -34,11 +34,6 @@ import 'styles/theme.scss';
 
 import configureStore from './configureStore';
 
-// Install Sentry
-Raven.config(config.raven.ravenUrl, {
-  whitelistUrls: config.raven.whitelistUrls
-}).install();
-
 // Observe loading of Lato font
 const LatoObserver = new FontFaceObserver('Lato', {});
 

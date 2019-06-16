@@ -21,3 +21,9 @@
     height: 2px;
   }
 }
+
+@media (max-width: 1024px) {
+  .information-container {
+    width: 100%;
+  }
+}

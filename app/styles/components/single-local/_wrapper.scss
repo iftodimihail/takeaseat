@@ -1,0 +1,43 @@
+.single-local-wrapper {
+  display: flex;
+  padding-top: 145px;
+}
+
+.mobile-reservation-button {
+  display: none;
+}
+
+.mobile-reservation-back {
+  margin: 10px 0 20px;
+
+  &:hover {
+    color: $primary;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  span {
+    font-family: 'MuseoSans-500', sans-serif;
+    font-size: 16px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .single-local-wrapper {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 540px) {
+  .single-local-wrapper {
+    padding-top: 95px;
+  }
+
+  .mobile-reservation-button {
+    display: flex;
+    justify-content: center;
+  }
+}
