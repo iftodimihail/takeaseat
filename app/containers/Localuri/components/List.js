@@ -10,9 +10,23 @@ import { onSearch } from './methods';
  * List of pubs and restaurants
  */
 class List extends React.Component {
+  isEmptyFilters = () => {
+    const { filters } = this.props;
+    let emptyFilters = true;
+
+    Object.keys(filters).forEach((filterType) => {
+      if (filters[filterType].length) {
+        emptyFilters = false;
+      }
+    });
+
+    return emptyFilters;
+  };
+
   render() {
     const { filteredData, data } = this.props;
-    const placesList = (!isEmpty(filteredData) && [...filteredData]) || [...data];
+
+    const placesList = this.isEmptyFilters() ? [...data] : [...filteredData];
     return (
       !isEmpty(data) ?
         <div style={{ width: '100%', display: (this.props.filterScreen && window.innerWidth < 994) && 'none' }}>

@@ -25,17 +25,48 @@ class FilterContainer extends React.Component {
       .then((res) => this.setState({ [this.props.type]: res.data.data }));
   }
 
+
   onChange = (e) => {
-    const data = (!isEmpty(this.props.filteredData) && this.props.filteredData) || this.props.data;
     const newFilter = e.target.name;
     if (e.target.checked) {
-      const filteredData = data.filter((place) => [newFilter, ...this.props.filters[type[this.props.type]]].includes(place[type[this.props.type]]));
-      this.props.onSelectFilter(assign(this.props.filters, { [type[this.props.type]]: [newFilter, ...this.props.filters[type[this.props.type]]] }), filteredData);
+      const filtersObj = assign(this.props.filters, { [type[this.props.type]]: [newFilter, ...this.props.filters[type[this.props.type]]] });
+      const filteredData = this.placesFilter(filtersObj);
+      this.props.onSelectFilter(filtersObj, filteredData);
     } else {
-      const removedFilter = this.props.filters[type[this.props.type]].filter((filter) => filter !== newFilter);
-      const filteredData = this.props.data.filter((place) => removedFilter.includes(place[type[this.props.type]]));
-      this.props.onSelectFilter(assign(this.props.filters, { [type[this.props.type]]: this.props.filters[type[this.props.type]].filter((filter) => filter !== newFilter) }), filteredData);
+      const filtersAfterRemoving = this.props.filters[type[this.props.type]].filter((filter) => filter !== newFilter);
+      const filtersObj = assign(this.props.filters, { [type[this.props.type]]: filtersAfterRemoving });
+      const filteredData = this.placesFilter(filtersObj);
+      this.props.onSelectFilter(filtersObj, filteredData);
     }
+  };
+
+  placesFilter = (filters) => {
+    const { data } = this.props;
+    let filteredData = [];
+
+    if (!isEmpty(data)) {
+      if (!isEmpty(filters.placeType)) {
+        filteredData = data.filter((place) => filters.placeType.includes(place.placeType));
+      }
+
+      if (!isEmpty(filters.kitchenType)) {
+        if (!isEmpty(filteredData)) {
+          filteredData = filteredData.filter((place) => filters.kitchenType.includes(place.kitchenType));
+        } else {
+          filteredData = data.filter((place) => filters.kitchenType.includes(place.kitchenType));
+        }
+      }
+
+      if (!isEmpty(filters.priceType)) {
+        if (!isEmpty(filteredData)) {
+          filteredData = filteredData.filter((place) => filters.priceType.includes(place.priceType));
+        } else {
+          filteredData = data.filter((place) => filters.priceType.includes(place.priceType));
+        }
+      }
+    }
+
+    return filteredData;
   };
 
   render() {
