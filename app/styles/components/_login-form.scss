@@ -105,6 +105,17 @@
 }
 
 .login-form {
+  margin: 0 auto;
+  width: 450px;
+  height: calc(100vh - 200px);
+
+  .form-title {
+    padding-bottom: 20px;
+    font-size: 22px;
+    font-family: 'Museo-700', sans-serif;
+    text-align: center;
+    color: $text-darken-grey;
+  }
 
   .errors-container {
     text-align: center;

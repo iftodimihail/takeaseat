@@ -28,7 +28,7 @@ class Home extends React.Component {
           <SearchBar onSearch={this.onSearch} />
           <Menu />
         </div>
-        <ContainerInner>
+        <ContainerInner smallMargin>
           <p>Cele mai populare restaurante, baruri, cafenele sau pub-uri</p>
           <PlaceCards />
         </ContainerInner>

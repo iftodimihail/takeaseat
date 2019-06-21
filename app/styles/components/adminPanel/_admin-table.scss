@@ -1,0 +1,21 @@
+.admin-reservations-table {
+
+  .actions {
+    svg {
+      font-size: 18px;
+      margin: 0 3px;
+    }
+
+    .approve {
+      svg {
+        color: $success;
+      }
+    }
+
+    .reject {
+      svg {
+        color: $danger;
+      }
+    }
+  }
+}

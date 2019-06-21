@@ -1,7 +1,17 @@
 import React from 'react';
-import { Table } from 'antd';
+import { connect } from 'react-redux';
+import { compose } from 'redux';
+import { Table, Tooltip, Popconfirm } from 'antd';
+import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import moment from 'moment/moment';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import RejectModal from './RejectModal';
+import Container from '../ContainerPage';
+import PageHeader from '../Localuri/components/PageHeader';
+import ContainerInner from '../../components/ContainerInner';
+import { successNotification } from '../../components/Notifications';
 
 /**
  * AdminPanel Component
@@ -12,9 +22,19 @@ class AdminPanel extends React.Component {
   };
 
   componentDidMount() {
-    axios.get('/localuri', { params: { localId: 3 } })
-      .then((res) => console.log(res.data.data));
+    axios.get('/reservations', { params: { localId: this.props.user.local_id } })
+      .then((res) => this.setState({ data: res.data.data.map((reservation) => ({ key: reservation.id, ...reservation })) }));
   }
+
+  approveReservation = (id) => () => {
+    axios.put(`/reservations/change-reservation-status/${id}`, { status: 'confirmed' })
+      .then(() => {
+        this.setState({ data: this.state.data.filter((reservation) => reservation.id !== id) });
+        successNotification('approvedReservation', 'Rezervare aprobată cu succes');
+      });
+  };
+
+  onReject = (id) => () => this.setState({ data: this.state.data.filter((reservation) => reservation.id !== id) });
 
   columns = [
     {
@@ -39,23 +59,62 @@ class AdminPanel extends React.Component {
     },
     {
       title: 'Email',
-      dataIndex: 'email',
-      key: 'email'
+      key: 'email',
+      render: (row) => <Tooltip title="Trimite Email"><a href={`mailto:${row.email}`}>{row.email}</a></Tooltip>
     },
     {
       title: 'Număr de Telefon',
-      dataIndex: 'phone',
-      key: 'phone'
+      key: 'phone',
+      render: (row) => <Tooltip title="Sună"><a href={`tel:${row.phone}`}>{row.phone}</a></Tooltip>
+    },
+    {
+      title: 'Acțiuni',
+      key: 'actions',
+      render: (row) => (
+        <div className="actions">
+          <Popconfirm
+            title="Ești sigur?"
+            okText="Confirmă"
+            cancelText="Anulează"
+            onConfirm={this.approveReservation(row.id)}
+          >
+            <Tooltip title="Aprobă">
+              <a className="approve"><FontAwesomeIcon icon={faCheckCircle} /></a>
+            </Tooltip>
+          </Popconfirm>
+          <RejectModal
+            onReject={this.onReject}
+            record={row}
+          />
+        </div>
+      )
     }
   ];
 
   render() {
     return (
-      <div>
-        <Table columns={this.columns} />
-      </div>
-    )
+      <Container>
+        <Helmet>
+          <title>Admin Panel</title>
+        </Helmet>
+        <PageHeader />
+        <ContainerInner>
+          <div className="admin-reservations-table">
+            <Table dataSource={this.state.data} columns={this.columns} />
+          </div>
+        </ContainerInner>
+      </Container>
+    );
   }
 }
 
-export default AdminPanel;
+const mapStateToProps = (state) => {
+  const globalState = state.get('global');
+  return {
+    user: globalState.get('user')
+  };
+};
+
+const withConnect = connect(mapStateToProps);
+
+export default compose(withConnect)(AdminPanel);

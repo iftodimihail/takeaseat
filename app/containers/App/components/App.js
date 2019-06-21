@@ -24,8 +24,8 @@ const App = () => (
       <PublicRoute exact path="/localuri" component={Localuri} />
       <PublicRoute path="/reviews/:reservationId" component={ReviewForm} />
       <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
-      <ProtectedRoute path="/admin/panel" component={AdminPanel} type="admins" />
-      <UnauthenticatedRoute rediret="/admin/panel" path="/admin/login" component={Login} />
+      <UnauthenticatedRoute type="admins" path="/admin/login" redirect="/admin" component={Login} />
+      <ProtectedRoute type="admins" path="/admin" redirect="/admin/login" component={AdminPanel} />
       <UnauthenticatedRoute path="/forgot-password" component={ForgotPassword} />
       <PublicRoute path="/:localName" component={SingleLocal} />
       <PublicRoute path="" component={NotFound} />

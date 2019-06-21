@@ -54,7 +54,7 @@ class Localuri extends React.Component {
           <title>Localuri</title>
         </Helmet>
         <PageHeader />
-        <ContainerInner>
+        <ContainerInner smallMargin>
           <div className="flex" style={{ paddingTop: 100 }}>
             <SidebarFilters
               showPlacesScreen={this.showPlacesScreen}

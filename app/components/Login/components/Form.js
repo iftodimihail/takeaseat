@@ -2,6 +2,18 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Form, Icon, Input, Button } from 'antd';
 import ErrorList from '../../ErrorList';
+import Container from '../../../containers/ContainerPage';
+import { Helmet } from 'react-helmet';
+import PageHeader from '../../../containers/Localuri/components/PageHeader';
+import ContainerInner from '../../ContainerInner';
+import { Tabs } from 'antd/lib/tabs';
+import ImageSlider from '../../../containers/SingleLocal/components/ImageSlider';
+import Reviews from '../../../containers/SingleLocal/components/Reviews';
+import Location from '../../../containers/SingleLocal/components/Location';
+import ReservationTab from '../../../containers/SingleLocal/components/Reservation';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../../Footer';
 
 const FormItem = Form.Item;
 
@@ -23,27 +35,38 @@ class LoginForm extends React.Component {
     const { loading, error } = this.props;
 
     return (
-      <Form onSubmit={this.handleSubmit} className="login-form">
-        <ErrorList error={error} className="m-b-md" />
-        <FormItem>
-          {getFieldDecorator('email', {
-            rules: [{ required: true, message: 'Please input your email' }]
-          })(
-            <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" type="email" />
-          )}
-        </FormItem>
-        <FormItem>
-          {getFieldDecorator('password', {
-            rules: [{ required: true, message: 'Please input your password' }]
-          })(
-            <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
-          )}
-        </FormItem>
-        <div className="flex flex-space-between flex-vertical-center">
-          <NavLink className="login-form-forgot" to="/forgot-password">Forgot password</NavLink>
-          <Button type="primary" htmlType="submit" className="login-form-button" disabled={loading} loading={loading}>Log in</Button>
-        </div>
-      </Form>
+      <Container>
+        <Helmet>
+          <title>Admin Login</title>
+        </Helmet>
+        <PageHeader />
+        <ContainerInner>
+          <Form onSubmit={this.handleSubmit} className="login-form">
+            <div className="form-title">
+              Admin Login
+            </div>
+            <ErrorList error={error} className="m-b-md" />
+            <FormItem>
+              {getFieldDecorator('email', {
+                rules: [{ required: true, message: 'Te rugăm să introduci adresa de email' }]
+              })(
+                <Input prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="Email" type="email" />
+              )}
+            </FormItem>
+            <FormItem>
+              {getFieldDecorator('password', {
+                rules: [{ required: true, message: 'Te rugăm să introduci parola' }]
+              })(
+                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+              )}
+            </FormItem>
+            <div className="flex flex-space-between flex-vertical-center">
+              <Button type="primary" size="small" htmlType="submit" className="login-form-button m-l-a" disabled={loading} loading={loading}>Log in</Button>
+            </div>
+          </Form>
+        </ContainerInner>
+        <Footer />
+      </Container>
     );
   }
 }
