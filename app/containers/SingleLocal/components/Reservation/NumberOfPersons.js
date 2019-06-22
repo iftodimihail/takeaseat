@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'antd';
 import randomString from 'randomstring';
 import range from 'lodash/range';
-import axios from '../../../../axios';
 
 /**
  * NumberOfPersons component

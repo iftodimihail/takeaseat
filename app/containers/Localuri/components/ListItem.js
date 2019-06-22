@@ -4,6 +4,7 @@ import { Rate, Button } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt, faMoneyBill, faUtensils } from '@fortawesome/free-solid-svg-icons';
 import DarkenContainer from '../../../components/DarkenContainer';
+import { evalRating } from '../../../utils/common';
 
 class ListItem extends React.Component {
   state = {
@@ -23,7 +24,7 @@ class ListItem extends React.Component {
           </div>
           <div className="details">
             <h2>{this.props.name}</h2>
-            <Rate disabled allowHalf defaultValue={Math.floor(parseFloat(this.props.rating / this.props.totalReviews) * 2) / 2} />
+            <Rate disabled allowHalf defaultValue={evalRating(this.props.rating, this.props.totalReviews)} />
             <p className="address"><FontAwesomeIcon icon={faMapMarkerAlt} />{this.props.address}</p>
             <div className="detail-types">
               <FontAwesomeIcon icon={faMoneyBill} /><span>{this.props.priceType}</span>

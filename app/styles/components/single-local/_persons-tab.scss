@@ -1,6 +1,7 @@
 .persons-tab-container {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 
   button {
     background: whitesmoke;
@@ -8,9 +9,27 @@
     height: 60px;
     margin: 5px 18px 5px 0;
     padding: 0 20px;
+
+    &:hover {
+      color: $primary;
+      border-color: $primary;
+    }
   }
 
   button:nth-child(6n) {
     margin-right: 0;
+  }
+}
+
+@media (max-width: 994px) {
+  .persons-tab-container {
+
+    button {
+      margin: 5px 9px 5px 9px;
+    }
+
+    button:nth-child(6n) {
+      margin-right: 9px;
+    }
   }
 }

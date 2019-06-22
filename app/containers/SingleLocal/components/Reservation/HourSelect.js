@@ -23,12 +23,12 @@ class HourSelect extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="hour-selection-tab">
         <TimePicker
           onOpenChange={this.handleOpenChange}
           open={this.state.open}
           format="HH:mm"
-          minuteStep={15}
+          minuteStep={5}
           onChange={this.handleChange}
           addon={() => (
             <Button size="small" type="primary" onClick={this.handleOk}>

@@ -1,0 +1,41 @@
+.hour-selection-tab {
+  width: 100%;
+
+  .ant-time-picker {
+    width: 100%;
+
+    .ant-time-picker-input {
+      padding: 19px 11px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+
+      &:hover {
+        border-color: $primary;
+      }
+
+      .ant-time-picker-icon {
+        margin-top: -9px;
+      }
+    }
+  }
+}
+
+.ant-time-picker-panel-narrow .ant-time-picker-panel-input-wrap {
+  max-width: 222px !important;
+}
+
+.ant-time-picker-panel-select {
+  width: 85px;
+
+  li {
+    padding-left: 0;
+    text-align: center;
+  }
+}
+
+.ant-time-picker-panel-addon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

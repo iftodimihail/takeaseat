@@ -3,6 +3,7 @@ import { Rate } from 'antd';
 import { NavLink } from 'react-router-dom';
 import ObjectFitImage from '../ObjectFitImage';
 import DarkenContainer from '../DarkenContainer';
+import { evalRating } from '../../utils/common';
 
 /**
  * Place Card
@@ -25,8 +26,8 @@ class PlaceCard extends React.Component {
         <div onMouseLeave={this.disableHoverStyle} onMouseEnter={this.enableHoverStyle}>
           <p className="place-name">{this.props.name}</p>
           <div className="place-rating">
-            <Rate disabled allowHalf defaultValue={Math.floor(parseFloat(this.props.rating / this.props.totalReviews) * 2) / 2} />
-            <div className="rating-text">({this.props.rating / this.props.totalReviews || 0} / {Math.round(this.props.totalReviews)} voturi)</div>
+            <Rate disabled allowHalf defaultValue={evalRating(this.props.rating, this.props.totalReviews)} />
+            <div className="rating-text">({this.props.totalReviews} voturi)</div>
           </div>
         </div>
         <DarkenContainer
