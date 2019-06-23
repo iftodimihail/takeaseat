@@ -22,7 +22,7 @@ export function* makeReservationStartSaga({ data, form, onSuccess }) {
     yield put(makeReservationSuccess());
     form.resetFields();
     onSuccess();
-    successNotification('successReservation', 'Reservarea a fost înregistrată. Veți primi un email de confirmare încurând');
+    successNotification('successReservation', 'Reservarea a fost înregistrată. Veți primi un email în legătură cu rezervarea dumneavoastră încurând');
   } catch (error) {
     try {
       yield put(makeReservationError(error.response.data.errors));

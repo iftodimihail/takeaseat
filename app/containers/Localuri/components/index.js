@@ -16,6 +16,8 @@ import PageHeader from './PageHeader';
 import List from './List';
 import SidebarFilters from './SidebarFilters';
 import { DAEMON } from '../../../utils/constants';
+import ScrollToTop from '../../../components/ScrollToTop';
+import Preloader from '../../../components/Preloader/components/Preloader';
 
 /**
  * Localuri component
@@ -28,7 +30,7 @@ class Localuri extends React.Component {
   componentDidMount() {
     const { onFetch, location } = this.props;
 
-    if (this.props.location.search) {
+    if (this.props.location.search && queryString.parse(location.search).nume) {
       onFetch(queryString.parse(location.search));
     } else {
       onFetch();
@@ -50,23 +52,27 @@ class Localuri extends React.Component {
   render() {
     return (
       <Container>
+        <ScrollToTop />
         <Helmet>
           <title>Localuri</title>
         </Helmet>
         <PageHeader />
         <ContainerInner smallMargin>
-          <div className="flex" style={{ paddingTop: 100 }}>
-            <SidebarFilters
-              showPlacesScreen={this.showPlacesScreen}
-              filterScreen={this.state.filterScreen}
-              {...this.props}
-            />
-            <List
-              showFilterScreen={this.showFilterScreen}
-              filterScreen={this.state.filterScreen}
-              {...this.props}
-            />
-          </div>
+          {this.props.loading ?
+            <Preloader /> :
+            <div className="flex" style={{ paddingTop: 100 }}>
+              <SidebarFilters
+                showPlacesScreen={this.showPlacesScreen}
+                filterScreen={this.state.filterScreen}
+                {...this.props}
+              />
+              <List
+                showFilterScreen={this.showFilterScreen}
+                filterScreen={this.state.filterScreen}
+                {...this.props}
+              />
+            </div>
+          }
         </ContainerInner>
         <Footer />
       </Container>
@@ -86,6 +92,7 @@ const mapStateToProps = (state) => {
 
   return {
     data: placesState.get('data').toJS(),
+    loading: placesState.get('loading'),
     filters: placesState.get('filters').toJS(),
     filteredData: placesState.get('filteredData').toJS()
   };

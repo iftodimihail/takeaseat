@@ -1,22 +1,17 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import { Form, Icon, Input, Button } from 'antd';
+import { Helmet } from 'react-helmet';
 import ErrorList from '../../ErrorList';
 import Container from '../../../containers/ContainerPage';
-import { Helmet } from 'react-helmet';
 import PageHeader from '../../../containers/Localuri/components/PageHeader';
 import ContainerInner from '../../ContainerInner';
-import { Tabs } from 'antd/lib/tabs';
-import ImageSlider from '../../../containers/SingleLocal/components/ImageSlider';
-import Reviews from '../../../containers/SingleLocal/components/Reviews';
-import Location from '../../../containers/SingleLocal/components/Location';
-import ReservationTab from '../../../containers/SingleLocal/components/Reservation';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../../Footer';
 
 const FormItem = Form.Item;
 
+/**
+ * Login form
+ */
 class LoginForm extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();

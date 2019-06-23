@@ -16,7 +16,7 @@ class SidebarFilters extends React.Component {
         <div className="results-btn">
           <Button type="primary" size="small" onClick={this.props.showPlacesScreen}>Afișează rezultatele</Button>
         </div>
-        <div style={{ minWidth: '250px' }} className="sidebar">
+        <div className="sidebar">
           <SearchBar
             onSearch={onSearch(this.props.history)}
             defaultValue={queryString.parse(this.props.location.search).nume}

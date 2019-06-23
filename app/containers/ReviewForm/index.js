@@ -1,6 +1,8 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import { Form, Input, Rate, Button } from 'antd';
 import { requiredMessage } from '../../utils/errors';
 import Container from '../ContainerPage';
@@ -13,7 +15,9 @@ import axios from '../../axios';
  */
 class ReviewForm extends React.Component {
   state = {
-    reservationData: null
+    reservationData: null,
+    loading: false,
+    confirmed: false
   };
 
   componentDidMount() {
@@ -28,26 +32,48 @@ class ReviewForm extends React.Component {
 
     form.validateFields((err, values) => {
       if (!err) {
+        this.setState({ loading: true });
         axios.post('/reviews', {
+          reservation_id: reservationData.id,
           first_name: reservationData.first_name,
           last_name: reservationData.last_name,
           local_id: reservationData.local_id,
           date: new Date(),
           ...values
-        });
+        })
+          .then(() => this.setState({ loading: false, confirmed: true }));
       }
     });
   };
 
   render() {
     const { getFieldDecorator } = this.props.form;
+
+    if (this.state.confirmed) {
+      return (
+        <div className="reservation-confirm">
+          <div className="information-wrapper">
+            <div className="success-reservation">
+              <FontAwesomeIcon icon={faCheckCircle} />
+              <span>Recenzia a fost adaugată cu success.</span>
+            </div>
+          </div>
+          <div>
+            <NavLink to="/">
+              <Button type="primary" size="small">Acasă</Button>
+            </NavLink>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <Container>
         <Helmet>
           <title>Local</title>
         </Helmet>
         <PageHeader />
-        <ContainerInner>
+        <ContainerInner smallMargin>
           <Form onSubmit={this.handleSubmit} style={{ paddingTop: 150 }}>
             <Form.Item label="Notă acordată">
               {getFieldDecorator('rating', {
@@ -61,7 +87,7 @@ class ReviewForm extends React.Component {
                 <Input.TextArea rows={8} />
               )}
             </Form.Item>
-            <Button size="small" type="primary" htmlType="submit">Trimite recenzie</Button>
+            <Button size="small" type="primary" htmlType="submit" loading={this.state.loading}>Trimite recenzie</Button>
           </Form>
         </ContainerInner>
       </Container>

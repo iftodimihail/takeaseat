@@ -18,4 +18,28 @@
       }
     }
   }
+
+  .ant-table-pagination {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .ant-pagination-item-link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .ant-pagination-item-active {
+      border-color: $primary;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      a {
+        color: $primary;
+      }
+    }
+  }
+
 }

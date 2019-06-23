@@ -1,6 +1,6 @@
 import React from 'react';
-import SingleReview from './SingleReview';
 import isEmpty from 'lodash/isEmpty';
+import SingleReview from './SingleReview';
 import axios from '../../../../axios';
 
 /**
@@ -23,7 +23,9 @@ class Reviews extends React.Component {
   render() {
     return (
       <div>
-        {!isEmpty(this.state.reviews) && this.state.reviews.map((review) => <SingleReview key={review.id} {...review} />)}
+        {(!isEmpty(this.state.reviews) &&
+        this.state.reviews.map((review) => <SingleReview key={review.id} {...review} />)) ||
+        <div className="no-reviews">Localul nu a prmit nici o recenzie încă</div>}
       </div>
     );
   }

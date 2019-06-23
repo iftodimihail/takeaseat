@@ -19,7 +19,7 @@ const Menu = () => (
         <p>Restaurante</p>
       </div>
       <div className="menu-option">
-        <NavLink to="/localuri" className="menu-icon">
+        <NavLink to="/localuri?tip=5-stele" className="menu-icon">
           <FontAwesomeIcon icon={faTrophy} />
         </NavLink>
         <p>Top localuri</p>
