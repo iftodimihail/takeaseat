@@ -26,6 +26,8 @@ class AdminPanel extends React.Component {
       .then((res) => this.setState({ data: res.data.data.map((reservation) => ({ key: reservation.id, ...reservation })) }));
   }
 
+  onReject = (id) => () => this.setState({ data: this.state.data.filter((reservation) => reservation.id !== id) });
+
   approveReservation = (id) => () => {
     axios.put(`/reservations/change-reservation-status/${id}`, { status: 'confirmed' })
       .then(() => {
@@ -33,8 +35,6 @@ class AdminPanel extends React.Component {
         successNotification('approvedReservation', 'Rezervare aprobată cu succes');
       });
   };
-
-  onReject = (id) => () => this.setState({ data: this.state.data.filter((reservation) => reservation.id !== id) });
 
   columns = [
     {
@@ -100,7 +100,15 @@ class AdminPanel extends React.Component {
         <PageHeader />
         <ContainerInner>
           <div className="admin-reservations-table">
-            <Table dataSource={this.state.data} columns={this.columns} />
+            {window.innerWidth > 994 ?
+              <Table dataSource={this.state.data} columns={this.columns} /> :
+              <div className="information-wrapper">
+                <div className="success-reservation">
+                  <FontAwesomeIcon icon={faCheckCircle} />
+                  <span>Logare cu succes</span>
+                </div>
+              </div>
+            }
           </div>
         </ContainerInner>
       </Container>

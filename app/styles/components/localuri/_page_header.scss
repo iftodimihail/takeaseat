@@ -28,3 +28,13 @@
     }
   }
 }
+
+@media (max-width: 765px) {
+  .places-page-header {
+    justify-content: center;
+
+    span {
+      display: none;
+    }
+  }
+}

@@ -39,17 +39,15 @@ class ReservationConfirmation extends React.Component {
     if (loading) {
       return <Preloader />;
     }
+    console.log(reservationData);
 
-    if (this.state.reservationData.status !== 'pending' || this.state.confirmed) {
+    if (this.state.confirmed || this.state.reservationData.confirmed) {
       return (
         <div className="reservation-confirm">
           <div className="information-wrapper">
             <div className="success-reservation">
               <FontAwesomeIcon icon={faCheckCircle} />
-              <span>{this.state.confirmed ?
-                'Reservare confirmată cu success.' :
-                'Reservare a fost deja revizuită.'}
-              </span>
+              <span>Reservare confirmată cu success</span>
             </div>
           </div>
           <div>

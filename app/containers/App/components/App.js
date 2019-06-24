@@ -7,7 +7,7 @@ import { ProtectedRoute, PublicRoute, UnauthenticatedRoute } from '../../../comp
 import Home from '../../Home';
 import Localuri from '../../Localuri';
 import SingleLocal from '../../SingleLocal';
-import ReservationConfirmation from '../../ReservationConfirm';
+import ReservationConfirm from '../../ReservationConfirm';
 import NotFound from '../../NotFound';
 import Login from '../../../components/Login';
 import ForgotPassword from '../../ForgotPassword';
@@ -23,7 +23,7 @@ const App = () => (
       <PublicRoute exact path="/" component={Home} />
       <PublicRoute exact path="/localuri" component={Localuri} />
       <PublicRoute path="/reviews/:reservationId" component={ReviewForm} />
-      <PublicRoute path="/reservations/:reservationId" component={ReservationConfirmation} />
+      <ProtectedRoute type="admins" path="/reservations/:reservationId" component={ReservationConfirm} />
       <UnauthenticatedRoute type="admins" path="/admin/login" redirect="/admin" component={Login} />
       <ProtectedRoute type="admins" path="/admin" redirect="/admin/login" component={AdminPanel} />
       <UnauthenticatedRoute path="/forgot-password" component={ForgotPassword} />

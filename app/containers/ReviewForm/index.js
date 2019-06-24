@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/isEmpty';
 import { NavLink, withRouter } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -49,7 +50,7 @@ class ReviewForm extends React.Component {
   render() {
     const { getFieldDecorator } = this.props.form;
 
-    if (this.state.confirmed) {
+    if (this.state.confirmed || (!isEmpty(this.state.reservationData) && this.state.reservationData.reviewed)) {
       return (
         <div className="reservation-confirm">
           <div className="information-wrapper">
