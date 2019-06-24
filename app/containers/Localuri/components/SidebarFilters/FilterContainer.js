@@ -2,12 +2,10 @@ import React from 'react';
 import { Checkbox } from 'antd';
 import assign from 'lodash/assign';
 import isEmpty from 'lodash/isEmpty';
-import isNaN from 'lodash/isNaN';
 import capitalize from 'lodash/capitalize';
 import queryString from 'query-string';
 import classNames from 'classnames';
 import axios from '../../../../axios';
-import { evalRating } from '../../../../utils/common';
 
 const type = {
   'place-types': 'placeType',
@@ -33,19 +31,19 @@ class FilterContainer extends React.Component {
     if (!isEmpty(queryObj)) {
       if (queryObj.tip === 'restaurant') {
         const filtersObj = assign(this.props.filters, { placeType: ['Restaurant'] });
-        const filteredData = this.placesFilter(filtersObj);
+        const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
       }
 
       if (queryObj.tip === 'bar') {
         const filtersObj = assign(this.props.filters, { placeType: ['Bar'] });
-        const filteredData = this.placesFilter(filtersObj);
+        const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
       }
 
       if (queryObj.tip === '5-stele') {
         const filtersObj = assign(this.props.filters, { ratingType: ['5 stele'] });
-        const filteredData = this.placesFilter(filtersObj);
+        const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
       }
     }
@@ -55,55 +53,22 @@ class FilterContainer extends React.Component {
     const newFilter = e.target.name;
     if (e.target.checked) {
       const filtersObj = assign(this.props.filters, { [type[this.props.type]]: [newFilter, ...this.props.filters[type[this.props.type]]] });
-      const filteredData = this.placesFilter(filtersObj);
+      let filteredData = this.props.placesFilter(filtersObj);
+      if (this.props.location.search) {
+        filteredData = filteredData.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume));
+      }
       this.props.onSelectFilter(filtersObj, filteredData);
     } else {
       const filtersAfterRemoving = this.props.filters[type[this.props.type]].filter((filter) => filter !== newFilter);
       const filtersObj = assign(this.props.filters, { [type[this.props.type]]: filtersAfterRemoving });
-      const filteredData = this.placesFilter(filtersObj);
+      let filteredData = this.props.placesFilter(filtersObj);
+      if (this.props.location.search) {
+        filteredData = !isEmpty(filteredData) ?
+          filteredData.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume)) :
+          this.props.data.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume));
+      }
       this.props.onSelectFilter(filtersObj, filteredData);
     }
-  };
-
-  placesFilter = (filters) => {
-    const { data } = this.props;
-    let filteredData = [];
-
-    if (!isEmpty(data)) {
-      if (!isEmpty(filters.placeType)) {
-        filteredData = data.filter((place) => filters.placeType.includes(place.placeType));
-      }
-
-      if (!isEmpty(filters.kitchenType)) {
-        if (!isEmpty(filteredData)) {
-          filteredData = filteredData.filter((place) => filters.kitchenType.includes(place.kitchenType));
-        } else {
-          filteredData = data.filter((place) => filters.kitchenType.includes(place.kitchenType));
-        }
-      }
-
-      if (!isEmpty(filters.priceType)) {
-        if (!isEmpty(filteredData)) {
-          filteredData = filteredData.filter((place) => filters.priceType.includes(place.priceType));
-        } else {
-          filteredData = data.filter((place) => filters.priceType.includes(place.priceType));
-        }
-      }
-
-      if (!isEmpty(filters.ratingType)) {
-        const ratings = filters.ratingType.map((rating) => {
-          const ratingNumber = parseInt(rating.split('')[0], 10);
-          return !isNaN(ratingNumber) ? ratingNumber : 0;
-        });
-        if (!isEmpty(filteredData)) {
-          filteredData = filteredData.filter((place) => ratings.includes(Math.ceil(evalRating(place.rating, place.totalReviews))));
-        } else {
-          filteredData = data.filter((place) => ratings.includes(Math.ceil(evalRating(place.rating, place.totalReviews))));
-        }
-      }
-    }
-
-    return filteredData;
   };
 
   render() {

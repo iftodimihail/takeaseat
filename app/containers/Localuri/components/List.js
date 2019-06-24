@@ -26,7 +26,7 @@ class List extends React.Component {
   render() {
     const { filteredData, data } = this.props;
 
-    const placesList = this.isEmptyFilters() ? [...data] : [...filteredData];
+    const placesList = this.isEmptyFilters() && isEmpty(filteredData) ? [...data] : [...filteredData];
     return (
       !isEmpty(data) ?
         <div style={{ width: '100%', display: (this.props.filterScreen && window.innerWidth < 994) && 'none' }}>

@@ -3,12 +3,13 @@ import { Helmet } from 'react-helmet';
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import isEmpty from 'lodash/isEmpty';
 import queryString from 'query-string';
 import reducer from '../../Home/components/PlaceCards/reducer';
 import saga from '../../Home/components/PlaceCards/saga';
 import injectSaga from '../../../utils/injectSaga';
 import injectReducer from '../../../utils/injectReducer';
-import { fetchAllPlacesStart, selectFilter } from '../../Home/components/PlaceCards/actions';
+import { addFilteredData, fetchAllPlacesStart, selectFilter } from '../../Home/components/PlaceCards/actions';
 import Container from '../../ContainerPage';
 import ContainerInner from '../../../components/ContainerInner';
 import Footer from '../../../components/Footer';
@@ -34,14 +35,6 @@ class Localuri extends React.Component {
       onFetch(queryString.parse(location.search));
     } else {
       onFetch();
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    const { onFetch, location } = this.props;
-
-    if (prevProps.location.search !== this.props.location.search) {
-      onFetch(queryString.parse(location.search));
     }
   }
 
@@ -106,7 +99,8 @@ const mapStateToProps = (state) => {
  */
 const mapDispatchToProps = (dispatch) => ({
   onFetch: (filters = {}) => dispatch(fetchAllPlacesStart(filters)),
-  onSelectFilter: (newFilter, data) => dispatch(selectFilter(newFilter, data))
+  onSelectFilter: (newFilter, data) => dispatch(selectFilter(newFilter, data)),
+  onAddFilteredData: (filteredData) => dispatch(addFilteredData(filteredData))
 });
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);

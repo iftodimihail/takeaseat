@@ -2,7 +2,8 @@ import {
   FETCH_ALL_PLACES_START,
   FETCH_ALL_PLACES_SUCCESS,
   FETCH_ALL_PLACES_ERROR,
-  SELECT_FILTER
+  SELECT_FILTER,
+  ADD_FILTERED_DATA
 } from './constants';
 
 export function fetchAllPlacesStart(filters) {
@@ -30,6 +31,13 @@ export function selectFilter(newFilter, filteredData) {
   return {
     type: SELECT_FILTER,
     newFilter,
+    filteredData
+  };
+}
+
+export function addFilteredData(filteredData) {
+  return {
+    type: ADD_FILTERED_DATA,
     filteredData
   };
 }

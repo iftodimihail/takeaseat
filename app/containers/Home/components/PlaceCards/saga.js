@@ -1,10 +1,11 @@
 /*
  * Memorial Candles Saga
  */
-import { put, takeLatest, call } from 'redux-saga/effects';
+import { put, takeLatest, call, select } from 'redux-saga/effects';
+import isEmpty from 'lodash/isEmpty';
 import axios from '../../../../axios';
 import {
-  fetchAllPlacesSuccess, fetchAllPlacesError
+  fetchAllPlacesSuccess, fetchAllPlacesError, addFilteredData
 } from './actions';
 import { FETCH_ALL_PLACES_START } from './constants';
 import config from '../../../../config';
@@ -15,8 +16,15 @@ import config from '../../../../config';
  */
 export function* fetchAllPlacesStartSaga({ filters }) {
   try {
+    const filteredData = yield select((state) => state.get('places').get('filteredData').toJS());
     const response = yield call(() => axios.get('/localuri', { params: { ...filters } }));
     yield put(fetchAllPlacesSuccess(response.data.data));
+    // if (isEmpty(filters)) {
+    // } else {
+    //   const newData = !isEmpty(filteredData) ? filteredData.filter((place) => response.data.data.includes(place)) : response.data.data;
+    //   console.log(newData);
+    //   yield put(addFilteredData(newData));
+    // }
   } catch (error) {
     try {
       yield put(fetchAllPlacesError(error.response.data.errors));

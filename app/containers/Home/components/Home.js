@@ -9,13 +9,12 @@ import Menu from './Menu';
 import ContainerInner from '../../../components/ContainerInner';
 import PlaceCards from './PlaceCards/index';
 import Footer from '../../../components/Footer';
+import { onSearch } from '../../Localuri/components/methods';
 
 /**
  * Home component
  */
 class Home extends React.Component {
-  onSearch = (value) => this.props.history.push(`/localuri?nume=${value}`);
-
   render() {
     return (
       <Container>
@@ -25,7 +24,7 @@ class Home extends React.Component {
         <div className="home-header">
           <HeaderSlider />
           <DarkenContainer height="400px" />
-          <SearchBar onSearch={this.onSearch} />
+          <SearchBar onSearch={onSearch(this.props.history)} />
           <Menu />
         </div>
         <ContainerInner smallMargin>
