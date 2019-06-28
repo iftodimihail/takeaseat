@@ -1,24 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { Table, Tooltip, Popconfirm } from 'antd';
+import { Table, Tooltip, Popconfirm, Button } from 'antd';
 import { Helmet } from 'react-helmet';
 import axios from 'axios';
 import moment from 'moment/moment';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCheckCircle, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
 import RejectModal from './RejectModal';
 import Container from '../ContainerPage';
 import PageHeader from '../Localuri/components/PageHeader';
 import ContainerInner from '../../components/ContainerInner';
 import { successNotification } from '../../components/Notifications';
+import ReservationHistoryTable from './HistoryTable';
 
 /**
  * AdminPanel Component
  */
 class AdminPanel extends React.Component {
   state = {
-    data: []
+    data: [],
+    showHistory: false
   };
 
   componentDidMount() {
@@ -35,6 +37,10 @@ class AdminPanel extends React.Component {
         successNotification('approvedReservation', 'Rezervare aprobată cu succes');
       });
   };
+
+  showHistoryTable = () => this.setState({ showHistory: true });
+
+  hideHistoryTable = () => this.setState({ showHistory: false });
 
   columns = [
     {
@@ -100,7 +106,18 @@ class AdminPanel extends React.Component {
         <PageHeader />
         <ContainerInner>
           <div className="admin-reservations-table">
-            {window.innerWidth > 994 ?
+            <div className="nav-button">
+              {this.state.showHistory ?
+                <React.Fragment>
+                  <FontAwesomeIcon icon={faChevronLeft} />
+                  <a onClick={this.hideHistoryTable}>Înapoi</a>
+                </React.Fragment> :
+                <Button type="primary" size="small" onClick={this.showHistoryTable}>Istoric</Button>
+              }
+            </div>
+            {(this.state.showHistory &&
+              <ReservationHistoryTable {...this.props} />) ||
+            (window.innerWidth > 994 ?
               <Table dataSource={this.state.data} columns={this.columns} /> :
               <div className="information-wrapper">
                 <div className="success-reservation">
@@ -108,6 +125,7 @@ class AdminPanel extends React.Component {
                   <span>Logare cu succes</span>
                 </div>
               </div>
+            )
             }
           </div>
         </ContainerInner>

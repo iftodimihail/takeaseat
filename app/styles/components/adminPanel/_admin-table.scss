@@ -1,5 +1,18 @@
 .admin-reservations-table {
 
+  .nav-button {
+    display: flex;
+    align-items: center;
+    height: 36px;
+    margin-bottom: 15px;
+
+    a {
+      margin-left: 5px;
+      color: $text-darken-grey;
+      font-family: 'Museo-700', sans-serif;
+    }
+  }
+
   .actions {
     svg {
       font-size: 18px;
