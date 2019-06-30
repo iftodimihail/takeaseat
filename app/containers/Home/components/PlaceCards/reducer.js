@@ -4,7 +4,8 @@ import {
   FETCH_ALL_PLACES_SUCCESS,
   FETCH_ALL_PLACES_ERROR,
   SELECT_FILTER,
-  ADD_FILTERED_DATA
+  ADD_FILTERED_DATA,
+  INITIALIZE_FILTERS
 } from './constants';
 import initialState from './initialState';
 
@@ -21,6 +22,8 @@ function placesReducer(state = initialState, action) {
       return state
         .set('error', fromJS(action.error))
         .set('loading', false);
+    case INITIALIZE_FILTERS:
+      return initialState;
     case SELECT_FILTER:
       return state
         .set('filteredData', fromJS(action.filteredData))

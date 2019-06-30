@@ -5,7 +5,7 @@ import { put, takeLatest, call, select } from 'redux-saga/effects';
 import isEmpty from 'lodash/isEmpty';
 import axios from '../../../../axios';
 import {
-  fetchAllPlacesSuccess, fetchAllPlacesError, addFilteredData
+  fetchAllPlacesSuccess, fetchAllPlacesError, addFilteredData, initializeFilters
 } from './actions';
 import { FETCH_ALL_PLACES_START } from './constants';
 import config from '../../../../config';
@@ -16,8 +16,9 @@ import config from '../../../../config';
  */
 export function* fetchAllPlacesStartSaga({ filters }) {
   try {
+    yield put(initializeFilters());
     const filteredData = yield select((state) => state.get('places').get('filteredData').toJS());
-    const response = yield call(() => axios.get('/localuri', { params: { ...filters } }));
+    const response = yield call(() => axios.get('/localuri'));
     yield put(fetchAllPlacesSuccess(response.data.data));
     // if (isEmpty(filters)) {
     // } else {

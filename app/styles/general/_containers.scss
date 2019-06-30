@@ -14,3 +14,12 @@
 .spacing-top {
   padding-top: 70px;
 }
+
+@media (max-width: 740px) {
+  .main-container-inner {
+    > p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  }
+}

@@ -16,8 +16,8 @@ import AdminPanel from '../../AdminPanel';
 
 const App = () => (
   <div className="app-wrapper">
-    <Helmet titleTemplate="%s - Take-A-Seat" defaultTitle="Take-A-Seat">
-      <meta name="description" content="Take-A-Seat application" />
+    <Helmet titleTemplate="%s - Take A Seat" defaultTitle="Take A Seat">
+      <meta name="description" content="Take A Seat application" />
     </Helmet>
     <Switch>
       <PublicRoute exact path="/" component={Home} />

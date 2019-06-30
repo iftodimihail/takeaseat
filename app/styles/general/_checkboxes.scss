@@ -1,5 +1,9 @@
 .ant-checkbox {
 
+  .ant-checkbox-checked {
+    color: $primary;
+  }
+
   &.ant-checkbox-checked:after {
     animation: 0s;
     border-color: $input-border;

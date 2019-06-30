@@ -1,6 +1,3 @@
-/*
- * Memorial Candles Saga
- */
 import { put, takeLatest, call } from 'redux-saga/effects';
 import axios from '../../../../axios';
 import {
@@ -8,7 +5,6 @@ import {
   makeReservationError
 } from './actions';
 import { MAKE_RESERVATION_START } from './constants';
-import { successNotification } from '../../../../components/Notifications';
 import config from '../../../../config';
 
 /**
@@ -22,7 +18,6 @@ export function* makeReservationStartSaga({ data, form, onSuccess }) {
     yield put(makeReservationSuccess());
     form.resetFields();
     onSuccess();
-    successNotification('successReservation', 'Reservarea a fost înregistrată. Veți primi un email în legătură cu rezervarea dumneavoastră încurând');
   } catch (error) {
     try {
       yield put(makeReservationError(error.response.data.errors));

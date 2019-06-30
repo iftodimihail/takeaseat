@@ -29,19 +29,19 @@ class FilterContainer extends React.Component {
     const queryObj = queryString.parse(this.props.location.search);
 
     if (!isEmpty(queryObj)) {
-      if (queryObj.tip === 'restaurant') {
+      if (queryObj.tip === 'restaurant' && this.props.type === 'place-types') {
         const filtersObj = assign(this.props.filters, { placeType: ['Restaurant'] });
         const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
       }
 
-      if (queryObj.tip === 'bar') {
+      if (queryObj.tip === 'bar' && this.props.type === 'place-types') {
         const filtersObj = assign(this.props.filters, { placeType: ['Bar'] });
         const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
       }
 
-      if (queryObj.tip === '5-stele') {
+      if (queryObj.tip === '5-stele' && this.props.type === 'rating-types') {
         const filtersObj = assign(this.props.filters, { ratingType: ['5 stele'] });
         const filteredData = this.props.placesFilter(filtersObj);
         this.props.onSelectFilter(filtersObj, filteredData);
@@ -51,21 +51,23 @@ class FilterContainer extends React.Component {
 
   onChange = (e) => {
     const newFilter = e.target.name;
+    const searchValue = this.props.location.search && queryString.parse(this.props.location.search).nume;
+
     if (e.target.checked) {
       const filtersObj = assign(this.props.filters, { [type[this.props.type]]: [newFilter, ...this.props.filters[type[this.props.type]]] });
       let filteredData = this.props.placesFilter(filtersObj);
-      if (this.props.location.search) {
-        filteredData = filteredData.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume));
+      if (searchValue) {
+        filteredData = filteredData.filter((place) => place.name.toLowerCase().includes(searchValue.toLowerCase()));
       }
       this.props.onSelectFilter(filtersObj, filteredData);
     } else {
       const filtersAfterRemoving = this.props.filters[type[this.props.type]].filter((filter) => filter !== newFilter);
       const filtersObj = assign(this.props.filters, { [type[this.props.type]]: filtersAfterRemoving });
       let filteredData = this.props.placesFilter(filtersObj);
-      if (this.props.location.search) {
+      if (searchValue) {
         filteredData = !isEmpty(filteredData) ?
-          filteredData.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume)) :
-          this.props.data.filter((place) => place.name.includes(queryString.parse(this.props.location.search).nume));
+          filteredData.filter((place) => place.name.toLowerCase().includes(searchValue.toLowerCase())) :
+          this.props.data.filter((place) => place.name.toLowerCase().includes(searchValue.toLowerCase()));
       }
       this.props.onSelectFilter(filtersObj, filteredData);
     }

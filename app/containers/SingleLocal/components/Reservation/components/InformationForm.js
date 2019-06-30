@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Button } from 'antd';
-import { requiredMessage } from '../../../../utils/errors';
+import { requiredMessage } from '../../../../../utils/errors';
 
 /**
  * InformationForm component

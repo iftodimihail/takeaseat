@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import isEmpty from 'lodash/isEmpty';
 import Calendar from 'react-calendar';
 import moment from 'moment/moment';
-import axios from '../../../../axios';
+import axios from '../../../../../axios';
 
 /**
  * ReservationCalendar component

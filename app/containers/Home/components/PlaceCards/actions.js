@@ -3,7 +3,8 @@ import {
   FETCH_ALL_PLACES_SUCCESS,
   FETCH_ALL_PLACES_ERROR,
   SELECT_FILTER,
-  ADD_FILTERED_DATA
+  ADD_FILTERED_DATA,
+  INITIALIZE_FILTERS
 } from './constants';
 
 export function fetchAllPlacesStart(filters) {
@@ -24,6 +25,12 @@ export function fetchAllPlacesError(error) {
   return {
     type: FETCH_ALL_PLACES_ERROR,
     error
+  };
+}
+
+export function initializeFilters() {
+  return {
+    type: INITIALIZE_FILTERS
   };
 }
 

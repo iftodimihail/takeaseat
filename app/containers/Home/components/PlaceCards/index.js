@@ -1,5 +1,7 @@
 import React from 'react';
 import isEmpty from 'lodash/isEmpty';
+import slice from 'lodash/slice';
+import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import reducer from './reducer';
@@ -26,7 +28,7 @@ class PlaceCards extends React.Component {
 
     return (
       <div className="places">
-        {!isEmpty(data) ? data.map((placeCard) => (
+        {!isEmpty(data) ? slice(data, 0, 8).map((placeCard) => (
           <PlaceCard
             key={placeCard.id}
             cardImage={placeCard.img}
@@ -66,4 +68,4 @@ const withConnect = connect(mapStateToProps, mapDispatchToProps);
 const withSaga = injectSaga({ key: 'places', saga, mode: DAEMON });
 const withReducer = injectReducer({ key: 'places', reducer });
 
-export default compose(withReducer, withSaga, withConnect)(PlaceCards);
+export default compose(withReducer, withSaga, withConnect, withRouter)(PlaceCards);

@@ -5,14 +5,10 @@
  * code.
  */
 
-// import config file
-import config from 'config';
-
 // Needed for redux-saga es6 generator support
 import 'babel-polyfill';
 
 // Import all the third party stuff
-import Raven from 'raven-js';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -53,11 +49,9 @@ const MOUNT_NODE = document.getElementById('app');
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
-      {/* <LanguageProvider messages={messages}> */}
       <ConnectedRouter history={history}>
         <App />
       </ConnectedRouter>
-      {/* </LanguageProvider> */}
     </Provider>,
     MOUNT_NODE
   );

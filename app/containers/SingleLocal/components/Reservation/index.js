@@ -9,11 +9,11 @@ import reducer from './reducer';
 import injectReducer from '../../../../utils/injectReducer';
 import saga from './saga';
 import injectSaga from '../../../../utils/injectSaga';
-import TabsIcon from './TabIcons';
-import Calendar from './Calendar';
-import NumberOfPersons from './NumberOfPersons';
-import HourSelect from './HourSelect';
-import InformationForm from './InformationForm';
+import TabsIcon from './components/TabIcons';
+import Calendar from './components/Calendar';
+import NumberOfPersons from './components/NumberOfPersons';
+import HourSelect from './components/HourSelect';
+import InformationForm from './components/InformationForm';
 import {
   selectReservationDate,
   selectNrOfPersons,

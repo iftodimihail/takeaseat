@@ -18,9 +18,11 @@ class SidebarFilters extends React.Component {
       location, data, onAddFilteredData
     } = this.props;
 
-    if (location.search) {
-      const filteredData = data.filter((place) => place.name.includes(queryString.parse(location.search).nume));
-      onAddFilteredData(filteredData);
+    if (!isEmpty(data)) {
+      if (location.search && queryString.parse(location.search).nume) {
+        const filteredData = data.filter((place) => place.name.toLowerCase().includes(queryString.parse(location.search).nume.toLowerCase()));
+        onAddFilteredData(filteredData);
+      }
     }
   }
 
@@ -31,11 +33,12 @@ class SidebarFilters extends React.Component {
 
     if (prevProps.location.search !== location.search) {
       const filteredData = this.placesFilter(filters);
+      const searchValue = location.search && queryString.parse(location.search).nume;
 
-      if (location.search) {
+      if (searchValue) {
         const newData = !isEmpty(filteredData) ?
-          filteredData.filter((place) => place.name.includes(queryString.parse(location.search).nume)) :
-          data.filter((place) => place.name.includes(queryString.parse(location.search).nume));
+          filteredData.filter((place) => place.name.toLowerCase().includes(searchValue.toLowerCase())) :
+          data.filter((place) => place.name.toLowerCase().includes(searchValue.toLowerCase()));
         onAddFilteredData(newData);
       } else {
         onAddFilteredData(filteredData);

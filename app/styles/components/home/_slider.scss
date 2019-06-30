@@ -84,11 +84,20 @@
 
 @media (max-width: 740px) {
   .home-header {
+    height: 250px;
+
+    .slick-slider {
+      height: 250px;
+
+      .slick-list {
+        height: 100%;
+      }
+    }
 
     .search-bar-container {
 
       .search-bar {
-        top: 180px;
+        top: 110px;
         width: 80%;
       }
 
@@ -98,7 +107,7 @@
     }
 
     .header-menu-container {
-      top: 230px;
+      top: 160px;
 
       .menu-option {
         margin: 0 5px;

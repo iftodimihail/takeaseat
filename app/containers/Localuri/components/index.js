@@ -29,13 +29,8 @@ class Localuri extends React.Component {
   };
 
   componentDidMount() {
-    const { onFetch, location } = this.props;
-
-    if (this.props.location.search && queryString.parse(location.search).nume) {
-      onFetch(queryString.parse(location.search));
-    } else {
-      onFetch();
-    }
+    const { onFetch } = this.props;
+    onFetch();
   }
 
   showFilterScreen = () => this.setState({ filterScreen: true });
@@ -51,7 +46,7 @@ class Localuri extends React.Component {
         </Helmet>
         <PageHeader />
         <ContainerInner smallMargin>
-          {this.props.loading ?
+          {this.props.loading || isEmpty(this.props.data) ?
             <Preloader /> :
             <div className="flex" style={{ paddingTop: 100 }}>
               <SidebarFilters

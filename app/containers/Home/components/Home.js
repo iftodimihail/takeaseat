@@ -23,12 +23,12 @@ class Home extends React.Component {
         </Helmet>
         <div className="home-header">
           <HeaderSlider />
-          <DarkenContainer height="400px" />
+          <DarkenContainer height={window.innerWidth < 764 ? '250px' : '400px'} />
           <SearchBar onSearch={onSearch(this.props.history)} />
           <Menu />
         </div>
         <ContainerInner smallMargin>
-          <p>Cele mai populare restaurante, baruri, cafenele sau pub-uri</p>
+          <p className="most-popular-text">Cele mai populare restaurante, baruri, cafenele sau pub-uri</p>
           <PlaceCards />
         </ContainerInner>
         <Footer />

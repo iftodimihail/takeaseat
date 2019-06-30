@@ -52,11 +52,11 @@ class LoginForm extends React.Component {
               {getFieldDecorator('password', {
                 rules: [{ required: true, message: 'Te rugăm să introduci parola' }]
               })(
-                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Password" />
+                <Input prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />} type="password" placeholder="Parolă" />
               )}
             </FormItem>
             <div className="flex flex-space-between flex-vertical-center">
-              <Button type="primary" size="small" htmlType="submit" className="login-form-button m-l-a" disabled={loading} loading={loading}>Log in</Button>
+              <Button type="primary" size="small" htmlType="submit" className="login-form-button m-l-a" disabled={loading} loading={loading}>Login</Button>
             </div>
           </Form>
         </ContainerInner>

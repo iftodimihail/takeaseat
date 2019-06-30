@@ -29,7 +29,11 @@ class ListItem extends React.Component {
             <div className="detail-types">
               <FontAwesomeIcon icon={faMoneyBill} /><span>{this.props.priceType}</span>
               <span style={{ paddingRight: 15 }}>{this.props.placeType}</span>
-              <FontAwesomeIcon icon={faUtensils} /><span>{this.props.kitchenType}</span>
+              {this.props.kitchenType &&
+                <React.Fragment>
+                  <FontAwesomeIcon icon={faUtensils} /><span>{this.props.kitchenType}</span>
+                </React.Fragment>
+              }
             </div>
           </div>
           <DarkenContainer
