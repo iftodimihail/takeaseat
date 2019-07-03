@@ -1,6 +1,10 @@
 .slider-container {
   height: 400px;
 
+  img {
+    width: 100%;
+  }
+
   .slick-list {
     height: inherit;
   }

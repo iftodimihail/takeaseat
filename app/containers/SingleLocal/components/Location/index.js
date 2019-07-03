@@ -1,6 +1,5 @@
 import React from 'react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import axios from '../../../../axios';
 
 /**
  * MapContainer Component
@@ -8,17 +7,11 @@ import axios from '../../../../axios';
 export class MapContainer extends React.Component {
   state = {
     showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {}
+    activeMarker: {}
   };
 
-  onMarkerClick = (props, marker, e) => {
-    axios.get('localuri/place-info', {
-      params: {
-        name: 'Fenice'
-      }
-    })
-      .then((res) => console.log(res.data.data));
+  onMarkerClick = () => {
+    window.open(`https://www.google.com/maps/search/?api=1&query=${this.props.name},${this.props.city}`);
   };
 
   onMapClicked = () => {
