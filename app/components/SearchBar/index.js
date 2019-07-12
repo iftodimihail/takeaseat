@@ -14,7 +14,7 @@ class SearchBar extends React.Component {
           onSearch={this.props.onSearch}
           enterButton
           size={this.props.size || 'large'}
-          placeholder="Caută după numele localului"
+          placeholder="Numele localului"
         />
       </div>
     );

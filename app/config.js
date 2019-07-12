@@ -3,7 +3,7 @@
  */
 
 export default {
-  apiUrl: 'http://localhost:7000/api/',
+  apiUrl: 'https://5044af01.eu.ngrok.io/api/',
   itemsPerPage: 10,
   generalError: {
     unknownError: ['An unknown error has occurred']

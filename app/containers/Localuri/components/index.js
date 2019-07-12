@@ -4,7 +4,6 @@ import { withRouter } from 'react-router-dom';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
-import queryString from 'query-string';
 import reducer from '../../Home/components/PlaceCards/reducer';
 import saga from '../../Home/components/PlaceCards/saga';
 import injectSaga from '../../../utils/injectSaga';
@@ -47,7 +46,9 @@ class Localuri extends React.Component {
         <PageHeader />
         <ContainerInner smallMargin>
           {this.props.loading || isEmpty(this.props.data) ?
-            <Preloader /> :
+            <div className="flex" style={{ paddingTop: 100, height: '100vh' }}>
+              <Preloader />
+            </div> :
             <div className="flex" style={{ paddingTop: 100 }}>
               <SidebarFilters
                 showPlacesScreen={this.showPlacesScreen}

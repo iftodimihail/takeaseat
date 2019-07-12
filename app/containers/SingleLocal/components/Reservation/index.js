@@ -19,6 +19,7 @@ import {
   selectNrOfPersons,
   selectReservationHour, makeReservationStart
 } from './actions';
+import { DAEMON } from '../../../../utils/constants';
 
 /**
  * ReservationTabs component
@@ -143,6 +144,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 const withReducer = injectReducer({ key: 'reservation', reducer });
-const withSaga = injectSaga({ key: 'reservation', saga });
+const withSaga = injectSaga({ key: 'reservation', saga, mode: DAEMON });
 
 export default compose(withReducer, withSaga, withConnect, withRouter)(ReservationTabs);

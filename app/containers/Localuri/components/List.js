@@ -36,6 +36,7 @@ class List extends React.Component {
               size="small"
               onSearch={onSearch(this.props.history)}
               defaultValue={queryString.parse(this.props.location.search).nume}
+              title="Numele localului"
             />
           </div>
           <div className="places-list">
